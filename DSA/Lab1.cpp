@@ -6,7 +6,7 @@
 	string str = "GGGFHHHEEE+=+++_+-//***NNNNNN";
 	set<char> s;
 
-	cout << "Ð˜ÑÑ…Ð¾Ð´Ð½Ð°Ñ ÑÑ‚Ñ€Ð¾ÐºÐ°: " << str << endl;
+	cout << "Èñõîäíàÿ ñòðîêà: " << str << endl;
 
 	for (char c : str)
 	{
@@ -16,7 +16,7 @@
 		}
 	}
 
-	cout << "ÐŸÐ¾Ð»ÑƒÑ‡ÐµÐ½Ð½Ð¾Ðµ Ð¼Ð½Ð¾Ð¶ÐµÑÑ‚Ð²Ð¾: { ";
+	cout << "Ïîëó÷åííîå ìíîæåñòâî: { ";
 	for (auto node : s)
 	{
 		cout << node << ", ";
@@ -29,16 +29,16 @@
 	//set<int> s2 = {13, 23, 8, 0, 55};
 	set<int> s1 = { 1 };
 	set<int> s2 = { 1 };
-	cout << "Ð˜ÑÑ…Ð¾Ð´Ð½Ñ‹Ðµ Ð¼Ð½Ð¾Ð¶ÐµÑÑ‚Ð²Ð°:\n";
+	cout << "Èñõîäíûå ìíîæåñòâà:\n";
 	cout << "A: { "; for (auto node : s1) { cout << node << ", "; } cout << "}\n";
 	cout << "B: { "; for (auto node : s2) { cout << node << ", "; } cout << "}\n";
-	cout << "Ð”ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ Ð¿Ð¾ Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð¸:\n";
+	cout << "Äåéñòâèÿ ïî î÷åðåäè:\n";
 	cout << "A\\B: { "; for (auto node : ExcludeSets(s1, s2)) { cout << node << ", "; } cout << "}\n";
 	cout << "B\\A: { "; for (auto node : ExcludeSets(s2, s1)) { cout << node << ", "; } cout << "}\n";
 	cout << "AUB: { "; for (auto node : ConcatSets(s2, s1)) { cout << node << ", "; } cout << "}\n";
 	cout << "A*B: { "; for (auto node : IntersectSets(s2, s1)) { cout << node << ", "; } cout << "}\n";
-	cout << "ÐœÐ½Ð¾Ð¶ÐµÑÑ‚Ð²Ð° [(A\\B)U(B\\A)] Ð¸ [(AUB)\\(A*B)] " << (Equals(
+	cout << "Ìíîæåñòâà [(A\\B)U(B\\A)] è [(AUB)\\(A*B)] " << (Equals(
 		ConcatSets(ExcludeSets(s1, s2), ExcludeSets(s2, s1)),
 		ExcludeSets(ConcatSets(s1, s2), IntersectSets(s1, s2))
-	) ? "Ñ€Ð°Ð²Ð½Ñ‹" : "Ð½ÐµÑ€Ð°Ð²Ð½Ñ‹");
+	) ? "ðàâíû" : "íåðàâíû");
 }

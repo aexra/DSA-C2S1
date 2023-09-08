@@ -1,7 +1,7 @@
 #include "LabManager.h"
 
 LabManager* LabManager::p_instance = nullptr;
-string LabManager::title = "| Ğ¤Ğ¾Ğ¼Ğ¸Ğ½ Ğ. Ğ. Ğ’ĞŸĞ 22\t\t|\n| Ğ’Ğ°Ñ€Ğ¸Ğ°Ğ½Ñ‚ â„–12\t\t\t|";
+string LabManager::title = "| Ôîìèí Í. À. ÂÏĞ22\t\t|\n| Âàğèàíò ¹12\t\t\t|";
 
 LabManager::LabManager()
 {
@@ -18,12 +18,12 @@ LabManager* LabManager::GetInstance()
 
 void LabManager::_OutLab_(Lab* lab, unsigned short int num)
 {
-	print("| Ğ›Ğ°Ğ±Ğ¾Ñ€Ğ°Ñ‚Ğ¾Ñ€Ğ½Ğ°Ñ Ñ€Ğ°Ğ±Ğ¾Ñ‚Ğ° â„–" + to_string(num) + "\t|");
+	print("| Ëàáîğàòîğíàÿ ğàáîòà ¹" + to_string(num) + "\t|");
 	line(2);
-	print("| Ğ—Ğ°Ğ´Ğ°Ğ½Ğ¸Ğµ â„–1 |\n");
+	print("| Çàäàíèå ¹1 |\n");
 	lab->t1();
 	line(2);
-	print("| Ğ—Ğ°Ğ´Ğ°Ğ½Ğ¸Ğµ â„–2 |\n");
+	print("| Çàäàíèå ¹2 |\n");
 	lab->t2();
 	line(3);
 }
