@@ -2,8 +2,6 @@
 
 [[noreturn]] void Lab1::t1()
 {
-	cout << "| Задание №1 |\n";
-
 	string ops = "*/-+";
 	string str = "GGGFHHHEEE+=+++_+-//***NNNNNN";
 	set<char> s;
@@ -27,8 +25,6 @@
 }
 [[noreturn]] void Lab1::t2()
 {
-	cout << "| Задание №2 |\n";
-
 	//set<int> s1 = {1, 2, 3, 4, 55};
 	//set<int> s2 = {13, 23, 8, 0, 55};
 	set<int> s1 = { 1 };

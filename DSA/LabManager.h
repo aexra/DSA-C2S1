@@ -18,9 +18,6 @@ private:
 	// SINGLETON
 	static LabManager* p_instance;
 
-	// STD IOSTREAM MANAGER
-	STDOutputManager* om = nullptr;
-
 	// TITLE TEXT
 	static string title;
 
@@ -32,11 +29,7 @@ private:
 	[[noreturn]]  LabManager();
 
 	// UNIVERSAL 2-TASK LAB OUTPUTTER
-	[[noreturn]] void _OutLab_(Lab* lab)
-	{
-		lab->t1();
-		lab->t2();
-	}
+	[[noreturn]] void _OutLab_(Lab* lab);
 public:
 	/*												*/
 	/*		PUBLIC VARIABLES		*/

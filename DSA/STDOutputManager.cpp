@@ -1,13 +1,11 @@
 #include "STDOutputManager.h"
 
-STDOutputManager* STDOutputManager::p_instance = nullptr;
-
-STDOutputManager::STDOutputManager()
+void print(std::string msg, std::string end)
 {
-
+	std::cout << msg << end;
 }
-STDOutputManager* STDOutputManager::GetInstance()
+void line(unsigned int n = 1)
 {
-	if (p_instance) return p_instance;
-	else return p_instance = new STDOutputManager();
+	for (unsigned int i = 0; i < n; i++)
+		std::cout << std::endl;
 }
