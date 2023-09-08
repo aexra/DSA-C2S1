@@ -133,7 +133,6 @@
     <ClCompile Include="Lab1.cpp" />
     <ClCompile Include="LabManager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="set.cpp" />
     <ClCompile Include="STDOutputManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -141,7 +140,6 @@
     <ClInclude Include="Lab1.h" />
     <ClInclude Include="LabManager.h" />
     <ClInclude Include="main.h" />
-    <ClInclude Include="set.h" />
     <ClInclude Include="STDOutputManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
