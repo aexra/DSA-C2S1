@@ -7,7 +7,7 @@
 // CUSTOM FILES INCLUSIONS
 
 
-// USINGS
+// USES
 using namespace std;
 
 

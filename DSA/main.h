@@ -8,7 +8,7 @@
 // CUSTOM FILES INCLUSIONS
 
 // LABS INCLUSIONS
-#include "Laba1.h"
+#include "Lab1.h"
 
 void OutTitle();
 void OutEnd();

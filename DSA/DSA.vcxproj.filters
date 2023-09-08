@@ -21,7 +21,7 @@
     <ClCompile Include="set.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Laba1.cpp">
+    <ClCompile Include="Lab1.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,7 +32,7 @@
     <ClInclude Include="set.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Laba1.h">
+    <ClInclude Include="Lab1.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
