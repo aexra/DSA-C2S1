@@ -1,6 +1,7 @@
 #include "LabManager.h"
 
 LabManager* LabManager::p_instance = nullptr;
+string LabManager::title = "| Фомин Н. А. ВПР22\t|\n| Вариант №12\t\t|";
 
 LabManager::LabManager()
 {
@@ -12,7 +13,8 @@ LabManager* LabManager::GetInstance()
 	else return p_instance = new LabManager();
 }
 
-void LabManager::Lab1()
+void LabManager::ExecuteLab1()
 {
-
+	Lab* lab = new Lab1();
+	_OutLab_(lab);
 }

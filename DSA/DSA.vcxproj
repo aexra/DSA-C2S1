@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Lab.cpp" />
     <ClCompile Include="Lab1.cpp" />
     <ClCompile Include="LabManager.cpp" />
     <ClCompile Include="main.cpp" />
@@ -134,6 +135,7 @@
     <ClCompile Include="STDOutputManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Lab.h" />
     <ClInclude Include="Lab1.h" />
     <ClInclude Include="LabManager.h" />
     <ClInclude Include="main.h" />

@@ -14,8 +14,6 @@
 void OutTitle();
 void OutEnd();
 void OutSeparator();
-void OutFirstTask();
-void OutSecondTask();
 
 // SET EXTENSIONS
 

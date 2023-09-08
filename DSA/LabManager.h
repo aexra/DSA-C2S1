@@ -1,7 +1,11 @@
 #pragma once
 
+// BUILT-IN INCLUDES
+#include <string>
+
 // CUSTOM FILES INCLUDES
 #include "STDOutputManager.h"
+#include "Lab.h"
 #include "Lab1.h"
 
 class LabManager
@@ -17,6 +21,9 @@ private:
 	// STD IOSTREAM MANAGER
 	STDOutputManager* om = nullptr;
 
+	// TITLE TEXT
+	static string title;
+
 	/*												*/
 	/*		PRIVATE METHODS		*/
 	/*												*/
@@ -25,7 +32,11 @@ private:
 	[[noreturn]]  LabManager();
 
 	// UNIVERSAL 2-TASK LAB OUTPUTTER
-	[[noreturn]] void _OutLab_();
+	[[noreturn]] void _OutLab_(Lab* lab)
+	{
+		lab->t1();
+		lab->t2();
+	}
 public:
 	/*												*/
 	/*		PUBLIC VARIABLES		*/
@@ -39,14 +50,14 @@ public:
 	static LabManager* GetInstance();
 
 	// LAB METHODS
-	[[noreturn]] void Lab1();
-	[[deprecated("Has no implementation")]] [[noreturn]] void Lab2();
-	[[deprecated("Has no implementation")]] [[noreturn]] void Lab3();
-	[[deprecated("Has no implementation")]] [[noreturn]] void Lab4();
-	[[deprecated("Has no implementation")]] [[noreturn]] void Lab5();
-	[[deprecated("Has no implementation")]] [[noreturn]] void Lab6();
-	[[deprecated("Has no implementation")]] [[noreturn]] void Lab7();
-	[[deprecated("Has no implementation")]] [[noreturn]] void Lab8();
-	[[deprecated("Has no implementation")]] [[noreturn]] void Lab9();
-	[[deprecated("Has no implementation")]] [[noreturn]] void Lab10();
+	[[noreturn]] void ExecuteLab1();
+	[[deprecated("Has no implementation")]] [[noreturn]] void ExecuteLab2();
+	[[deprecated("Has no implementation")]] [[noreturn]] void ExecuteLab3();
+	[[deprecated("Has no implementation")]] [[noreturn]] void ExecuteLab4();
+	[[deprecated("Has no implementation")]] [[noreturn]] void ExecuteLab5();
+	[[deprecated("Has no implementation")]] [[noreturn]] void ExecuteLab6();
+	[[deprecated("Has no implementation")]] [[noreturn]] void ExecuteLab7();
+	[[deprecated("Has no implementation")]] [[noreturn]] void ExecuteLab8();
+	[[deprecated("Has no implementation")]] [[noreturn]] void ExecuteLab9();
+	[[deprecated("Has no implementation")]] [[noreturn]] void ExecuteLab10();
 };
