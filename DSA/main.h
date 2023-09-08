@@ -7,9 +7,3 @@
 
 // CUSTOM FILES INCLUSIONS
 #include "LabManager.h"
-
-// LABS INCLUSIONS
-#include "Lab1.h"
-
-// SET EXTENSIONS
-
