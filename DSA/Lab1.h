@@ -74,7 +74,6 @@ private:
 		return isEquals;
 	}
 #pragma endregion
-
 #pragma region Public
 public:
 	[[noreturn]] void t1();

@@ -1,12 +1,11 @@
 #include "LabManager.h"
 
 LabManager* LabManager::p_instance = nullptr;
-string LabManager::title = "| Фомин Н. А. ВПР22\t|\n| Вариант №12\t\t|";
+string LabManager::title = "| Фомин Н. А. ВПР22\t\t|\n| Вариант №12\t\t\t|";
 
 LabManager::LabManager()
 {
 	print(title);
-	line(2);
 }
 LabManager* LabManager::GetInstance()
 {
@@ -14,8 +13,10 @@ LabManager* LabManager::GetInstance()
 	else return p_instance = new LabManager();
 }
 
-void LabManager::_OutLab_(Lab* lab)
+void LabManager::_OutLab_(Lab* lab, unsigned short int num)
 {
+	print("| Лабораторная работа №" + to_string(num) + "\t|");
+	line(2);
 	print("| Задание №1 |\n");
 	lab->t1();
 	line(2);
@@ -27,5 +28,5 @@ void LabManager::_OutLab_(Lab* lab)
 void LabManager::ExecuteLab1()
 {
 	Lab* lab = new Lab1();
-	_OutLab_(lab);
+	_OutLab_(lab, 1);
 }
