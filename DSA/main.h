@@ -11,9 +11,5 @@
 // LABS INCLUSIONS
 #include "Lab1.h"
 
-void OutTitle();
-void OutEnd();
-void OutSeparator();
-
 // SET EXTENSIONS
 
