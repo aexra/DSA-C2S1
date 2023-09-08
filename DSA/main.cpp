@@ -6,6 +6,9 @@ void main()
 	setlocale(LC_ALL, "Russian");
 	setlocale(LC_NUMERIC, "C");
 
+	LabManager* lm = LabManager::GetInstance();
+	lm->Lab1();
+
 	OutTitle();
 	OutFirstTask();
 	OutSeparator();

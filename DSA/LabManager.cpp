@@ -4,7 +4,7 @@ LabManager* LabManager::p_instance = nullptr;
 
 LabManager::LabManager()
 {
-
+	om = STDOutputManager::GetInstance();
 }
 LabManager* LabManager::GetInstance()
 {
