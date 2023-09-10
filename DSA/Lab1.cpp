@@ -9,18 +9,12 @@
 	cout << "Исходная строка: " << str << endl;
 
 	for (char c : str)
-	{
 		if ('E' <= c && c <= 'N' || ops.find(c) != string::npos)
-		{
 			s.insert(c);
-		}
-	}
 
 	cout << "Полученное множество: { ";
 	for (auto node : s)
-	{
 		cout << node << ", ";
-	}
 	cout << "}";
 }
 [[noreturn]] void Lab1::t2()
