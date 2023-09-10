@@ -1,9 +1,9 @@
 #pragma once
 
-// BUILT-IN INCLUDES
+// BUILT-IN INCLUSIONS
 #include <string>
 
-// CUSTOM FILES INCLUDES
+// CUSTOM FILES INCLUSIONS
 #include "STDOutputManager.h"
 #include "Lab.h"
 
