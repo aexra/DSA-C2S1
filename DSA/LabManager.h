@@ -28,7 +28,7 @@ private:
 	/*												*/
 
 	// CONSTRUCTOR
-	[[noreturn]]  LabManager();
+	LabManager();
 
 	// UNIVERSAL 2-TASK LAB OUTPUTTER
 	[[noreturn]] void _OutLab_(Lab* lab, unsigned short int num = 0);
