@@ -76,7 +76,7 @@ private:
 #pragma endregion
 #pragma region Public
 public:
-	[[noreturn]] void t1();
-	[[noreturn]] void t2();
+	[[noreturn]] void t1() override;
+	[[noreturn]] void t2() override;
 #pragma endregion
 };

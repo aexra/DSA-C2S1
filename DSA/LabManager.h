@@ -45,7 +45,8 @@ public:
 	static LabManager* GetInstance();
 
 	// LAB METHODS
-	[[noreturn]] void ExecuteLab1();
+	[[noreturn]] void ExecuteLab(unsigned short int num);
+	[[deprecated("Has no implementation")]] [[noreturn]] void ExecuteLab1();
 	[[deprecated("Has no implementation")]] [[noreturn]] void ExecuteLab2();
 	[[deprecated("Has no implementation")]] [[noreturn]] void ExecuteLab3();
 	[[deprecated("Has no implementation")]] [[noreturn]] void ExecuteLab4();

@@ -28,8 +28,17 @@ void LabManager::_OutLab_(Lab* lab, unsigned short int num)
 	line(3);
 }
 
-void LabManager::ExecuteLab1()
+void LabManager::ExecuteLab(unsigned short int num)
 {
-	Lab* lab = new Lab1();
-	_OutLab_(lab, 1);
+	Lab* lab;
+	switch (num)
+	{
+	case 1:
+		lab = new Lab1();
+		break;
+	default:
+		print("\n[ERROR\t]   Не найдено реализации лабраторной работы №" + to_string(num));
+		return;
+	}
+	_OutLab_(lab, num);
 }
