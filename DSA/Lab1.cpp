@@ -30,13 +30,13 @@
 	set<int> s1 = { 1 };
 	set<int> s2 = { 1 };
 	cout << "Исходные множества:\n";
-	cout << "A: { "; for (auto node : s1) { cout << node << ", "; } cout << "}\n";
-	cout << "B: { "; for (auto node : s2) { cout << node << ", "; } cout << "}\n";
+	cout << "   A: { "; for (auto node : s1) { cout << node << ", "; } cout << "}\n";
+	cout << "   B: { "; for (auto node : s2) { cout << node << ", "; } cout << "}\n";
 	cout << "Действия по очереди:\n";
-	cout << "A\\B: { "; for (auto node : ExcludeSets(s1, s2)) { cout << node << ", "; } cout << "}\n";
-	cout << "B\\A: { "; for (auto node : ExcludeSets(s2, s1)) { cout << node << ", "; } cout << "}\n";
-	cout << "AUB: { "; for (auto node : ConcatSets(s2, s1)) { cout << node << ", "; } cout << "}\n";
-	cout << "A*B: { "; for (auto node : IntersectSets(s2, s1)) { cout << node << ", "; } cout << "}\n";
+	cout << "   A\\B: { "; for (auto node : ExcludeSets(s1, s2)) { cout << node << ", "; } cout << "}\n";
+	cout << "   B\\A: { "; for (auto node : ExcludeSets(s2, s1)) { cout << node << ", "; } cout << "}\n";
+	cout << "   AUB: { "; for (auto node : ConcatSets(s2, s1)) { cout << node << ", "; } cout << "}\n";
+	cout << "   A*B: { "; for (auto node : IntersectSets(s2, s1)) { cout << node << ", "; } cout << "}\n";
 	cout << "Множества [(A\\B)U(B\\A)] и [(AUB)\\(A*B)] " << (Equals(
 		ConcatSets(ExcludeSets(s1, s2), ExcludeSets(s2, s1)),
 		ExcludeSets(ConcatSets(s1, s2), IntersectSets(s1, s2))
