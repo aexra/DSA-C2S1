@@ -22,8 +22,8 @@
 	//set<int> s1 = { 1 };
 	//set<int> s2 = { 1 };
 	cout << "Исходные множества:\n";
-	cout << "   A: { "; for (auto node : s1) { cout << node << ", "; } cout << "}\n";
-	cout << "   B: { "; for (auto node : s2) { cout << node << ", "; } cout << "}\n";
+	cout << "   A: " << s1 << "\n";
+	cout << "   B: " << s2 << "\n";
 	cout << "Действия по очереди:\n";
 	cout << "   A\\B: " << s1 / s2 << "\n";
 	cout << "   B\\A: " << s2 / s1 << "\n";
