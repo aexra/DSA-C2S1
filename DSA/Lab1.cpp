@@ -27,10 +27,10 @@
 	cout << "Действия по очереди:\n";
 	cout << "   A\\B: " << ExcludeSets(s1, s2) << "\n";
 	cout << "   B\\A: " << ExcludeSets(s2, s1) << "\n";
-	cout << "   AUB: " << ConcatSets(s2, s1) << "\n";
+	cout << "   AUB: " << s2 + s1 << "\n";
 	cout << "   A*B: " << IntersectSets(s2, s1) << "\n";
 	cout << "Множества [(A\\B)U(B\\A)] и [(AUB)\\(A*B)] " << (Equals(
 		ConcatSets(ExcludeSets(s1, s2), ExcludeSets(s2, s1)),
-		ExcludeSets(ConcatSets(s1, s2), IntersectSets(s1, s2))
+		ExcludeSets(s1 + s2, IntersectSets(s1, s2))
 	) ? "равны" : "неравны");
 }

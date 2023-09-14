@@ -13,13 +13,34 @@ std::ostream& operator << (std::ostream& os, std::set<T> _Right)
 	return os;
 }
 
+template <typename T>
+std::set<T> operator + (const std::set<T>& _Left, const std::set<T>& _Right)
+{
+	std::set<T> newset;
+	for (auto node : _Left)
+		newset.insert(node);
+	for (auto node : _Right)
+		newset.insert(node);
+	return newset;
+}
+
 //template <typename T>
-//std::set<T> ConcatSets(const std::set<T>& _Left, const std::set<T>& _Right)
+//set<T> operator / (const set<T>& _Left, const set<T>& _Right)
 //{
-//	std::set<T> newset;
-//	for (auto node : _Left)
-//		newset.insert(node);
-//	for (auto node : _Right)
-//		newset.insert(node);
+//	set<T> newset;
+//	for (T node1 : _Left)
+//	{
+//		bool toAdd = true;
+//		for (T node2 : _Right)
+//		{
+//			if (node1 == node2)
+//			{
+//				toAdd = false;
+//				break;
+//			}
+//		}
+//		if (toAdd)
+//			newset.insert(node1);
+//	}
 //	return newset;
 //}
