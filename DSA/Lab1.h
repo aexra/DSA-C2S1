@@ -7,6 +7,7 @@
 
 // CUSTOM FILES INCLUSIONS
 #include "Lab.h"
+#include "SetExtensions.h"
 
 // USES
 using namespace std;

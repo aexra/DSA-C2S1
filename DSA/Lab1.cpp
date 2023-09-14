@@ -13,10 +13,7 @@
 		if ('E' <= c && c <= 'N' || ops.find(c) != string::npos)
 			s.insert(c);
 
-	cout << "Полученное множество: { ";
-	for (auto node : s)
-		cout << node << ", ";
-	cout << "}";
+	cout << "Полученное множество: " << s;
 }
 [[noreturn]] void Lab1::t2()
 {
@@ -28,10 +25,10 @@
 	cout << "   A: { "; for (auto node : s1) { cout << node << ", "; } cout << "}\n";
 	cout << "   B: { "; for (auto node : s2) { cout << node << ", "; } cout << "}\n";
 	cout << "Действия по очереди:\n";
-	cout << "   A\\B: { "; for (auto node : ExcludeSets(s1, s2)) { cout << node << ", "; } cout << "}\n";
-	cout << "   B\\A: { "; for (auto node : ExcludeSets(s2, s1)) { cout << node << ", "; } cout << "}\n";
-	cout << "   AUB: { "; for (auto node : ConcatSets(s2, s1)) { cout << node << ", "; } cout << "}\n";
-	cout << "   A*B: { "; for (auto node : IntersectSets(s2, s1)) { cout << node << ", "; } cout << "}\n";
+	cout << "   A\\B: " << ExcludeSets(s1, s2) << "\n";
+	cout << "   B\\A: " << ExcludeSets(s2, s1) << "\n";
+	cout << "   AUB: " << ConcatSets(s2, s1) << "\n";
+	cout << "   A*B: " << IntersectSets(s2, s1) << "\n";
 	cout << "Множества [(A\\B)U(B\\A)] и [(AUB)\\(A*B)] " << (Equals(
 		ConcatSets(ExcludeSets(s1, s2), ExcludeSets(s2, s1)),
 		ExcludeSets(ConcatSets(s1, s2), IntersectSets(s1, s2))
