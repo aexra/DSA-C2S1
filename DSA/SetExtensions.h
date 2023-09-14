@@ -24,23 +24,48 @@ std::set<T> operator + (const std::set<T>& _Left, const std::set<T>& _Right)
 	return newset;
 }
 
-//template <typename T>
-//set<T> operator / (const set<T>& _Left, const set<T>& _Right)
-//{
-//	set<T> newset;
-//	for (T node1 : _Left)
-//	{
-//		bool toAdd = true;
-//		for (T node2 : _Right)
-//		{
-//			if (node1 == node2)
-//			{
-//				toAdd = false;
-//				break;
-//			}
-//		}
-//		if (toAdd)
-//			newset.insert(node1);
-//	}
-//	return newset;
-//}
+template <typename T>
+std::set<T> operator / (const std::set<T>& _Left, const std::set<T>& _Right)
+{
+	std::set<T> newset;
+	for (T node1 : _Left)
+	{
+		bool toAdd = true;
+		for (T node2 : _Right)
+		{
+			if (node1 == node2)
+			{
+				toAdd = false;
+				break;
+			}
+		}
+		if (toAdd)
+			newset.insert(node1);
+	}
+	return newset;
+}
+
+template <typename T>
+std::set<T> operator * (const std::set<T>& _Left, const std::set<T>& _Right)
+{
+	std::set<T> newset;
+	for (T node1 : _Left)
+		for (T node2 : _Right)
+			if (node1 == node2)
+			{
+				newset.insert(node1);
+				break;
+			}
+	return newset;
+}
+
+template <typename T>
+bool operator == (const std::set<T>& _Left, const std::set<T>& _Right)
+{
+	bool isEquals = true;
+	for (T node1 : _Left)
+		for (T node2 : _Right)
+			if (node1 != node2)
+				isEquals = false;
+	return isEquals;
+}
