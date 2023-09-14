@@ -31,7 +31,7 @@ private:
 	LabManager();
 
 	// UNIVERSAL 2-TASK LAB OUTPUTTER
-	[[noreturn]] void _OutLab_(Lab* lab, unsigned short int num = 0);
+	[[noreturn]] void _OutLab_(Lab* lab, unsigned short int num = 0, unsigned short int t = 0);
 public:
 	/*												*/
 	/*		PUBLIC VARIABLES		*/
@@ -45,7 +45,7 @@ public:
 	static LabManager* GetInstance();
 
 	// LAB METHODS
-	[[noreturn]] void ExecuteLab(unsigned short int num);
+	[[noreturn]] void ExecuteLab(unsigned short int num, unsigned short int t = 0);
 	[[deprecated("Has no implementation")]] [[noreturn]] void ExecuteLab1();
 	[[deprecated("Has no implementation")]] [[noreturn]] void ExecuteLab2();
 	[[deprecated("Has no implementation")]] [[noreturn]] void ExecuteLab3();
