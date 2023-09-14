@@ -2,13 +2,14 @@
 
 [[noreturn]] void Lab1::t1()
 {
+	string sequence = "GGGFHHHEEE+=+++_+-//***NNNNNN";
+
 	string ops = "*/-+";
-	string str = "GGGFHHHEEE+=+++_+-//***NNNNNN";
 	set<char> s;
 
-	cout << "Исходная строка: " << str << endl;
+	cout << "Исходная строка: " << sequence << endl;
 
-	for (char c : str)
+	for (char c : sequence)
 		if ('E' <= c && c <= 'N' || ops.find(c) != string::npos)
 			s.insert(c);
 
