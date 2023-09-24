@@ -2,7 +2,7 @@
 
 void Lab2::t1()
 {
-	auto tri = Triangle(3, 4, 5);
+	auto tri = Triangle(1, 1, 5);
 	cout << tri.getArea();
 }
 

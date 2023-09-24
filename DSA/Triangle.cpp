@@ -1,6 +1,6 @@
 #include "Triangle.h"
 
-std::ostream& operator<<(std::ostream& os, const Triangle& tri)
+std::ostream& operator << (std::ostream& os, const Triangle& tri)
 {
 	std::cout << "{ " << tri.a << "; " << tri.b << "; " << tri.c << " }";
 	return os;
