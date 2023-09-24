@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="debug.cpp" />
     <ClCompile Include="IFigure.cpp" />
     <ClCompile Include="Lab.cpp" />
     <ClCompile Include="Lab1.cpp" />
@@ -141,6 +142,7 @@
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="debug.h" />
     <ClInclude Include="IFigure.h" />
     <ClInclude Include="Lab.h" />
     <ClInclude Include="Lab1.h" />

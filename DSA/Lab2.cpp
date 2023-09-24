@@ -10,29 +10,36 @@ void Lab2::t1()
 
 	}
 
+	log("Открытие файла для чтения данных...");
 	ifstream ifile("resources\\Lab2\\triangles.txt");
 	if (!ifile.good())
 	{
-		cout << "Файл со сторонами треугольников не найден!";
+		log("Файл не найден. Завершение процедуры...");
 		return;
 	}
+	log("Файл открыт");
 
+	log("Парсинг текста в треугольники...");
 	vector<Triangle> vec = parseTrianglesFile(ifile);
 	ifile.close();
+	log("Парсинг завершен");
 
 	ofstream ofile("resources\\Lab2\\output1.txt", ios_base::app);
-
+	log("Файл для записи результата создан и открыт");
+	log("Заполнение файла...");
 	for (auto& tri : vec)
 	{
 		ofile << tri << "\t : ";
 		if (tri.isValid())
 			ofile << tri.getArea();
 		else
-			ofile << "Треугольник невозможен.";
+			ofile << "Треугольник невозможен";
 		ofile << endl;
 	}
 	ofile << "\n\n";
+	log("Файл заполнен");
 	ofile.close();
+	log("Поток записи закрыт");
 }
 
 void Lab2::t2()

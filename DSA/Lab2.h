@@ -9,6 +9,7 @@
 // CUSTOM FILES INCLUSIONS
 #include "Lab.h"
 #include "Triangle.h"
+#include "debug.h"
 
 
 // USES
