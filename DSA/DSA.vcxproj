@@ -130,19 +130,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="IFigure.cpp" />
     <ClCompile Include="Lab.cpp" />
     <ClCompile Include="Lab1.cpp" />
+    <ClCompile Include="Lab2.cpp" />
+    <ClCompile Include="Lab3.cpp" />
     <ClCompile Include="LabManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="STDOutputManager.cpp" />
+    <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IFigure.h" />
     <ClInclude Include="Lab.h" />
     <ClInclude Include="Lab1.h" />
+    <ClInclude Include="Lab2.h" />
+    <ClInclude Include="Lab3.h" />
     <ClInclude Include="LabManager.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="SetExtensions.h" />
     <ClInclude Include="STDOutputManager.h" />
+    <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

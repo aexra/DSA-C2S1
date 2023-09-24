@@ -52,6 +52,12 @@ void LabManager::ExecuteLab(unsigned short int num, unsigned short int t)
 	case 1:
 		lab = new Lab1();
 		break;
+	case 2:
+		lab = new Lab2();
+		break;
+	case 3:
+		lab = new Lab3();
+		break;
 	default:
 		print("\n[ERROR\t]   Не найдено реализации лабраторной работы №" + to_string(num));
 		return;
