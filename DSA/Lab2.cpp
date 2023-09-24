@@ -10,7 +10,7 @@ void Lab2::t1()
 
 	}
 
-	ifstream ifile("resources\\triangles.txt");
+	ifstream ifile("resources\\Lab2\\triangles.txt");
 	if (!ifile.good())
 	{
 		cout << "Файл со сторонами треугольников не найден!";
@@ -20,7 +20,7 @@ void Lab2::t1()
 	vector<Triangle> vec = parseTrianglesFile(ifile);
 	ifile.close();
 
-	ofstream ofile("resources\\output1.txt", ios_base::app);
+	ofstream ofile("resources\\Lab2\\output1.txt", ios_base::app);
 
 	for (auto& tri : vec)
 	{
