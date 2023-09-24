@@ -362,3 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /DSA/resources/output1.txt
+/DSA/resources/Lab2/output1.txt
+/DSA/resources/Lab2/triangles.txt
