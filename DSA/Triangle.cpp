@@ -2,7 +2,13 @@
 
 std::ostream& operator << (std::ostream& os, const Triangle& tri)
 {
-	std::cout << "{ " << tri.a << "; " << tri.b << "; " << tri.c << " }";
+	os << "{ " << tri.a << "; " << tri.b << "; " << tri.c << " }";
+	return os;
+}
+
+std::ofstream& operator << (std::ofstream& os, const Triangle& tri)
+{
+	os << "{ " << tri.a << "; " << tri.b << "; " << tri.c << " }";
 	return os;
 }
 
