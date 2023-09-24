@@ -3,6 +3,8 @@
 // BUILT-IN INCLUSIONS
 
 #include <iostream>
+#include <fstream>
+#include <vector>
 
 // CUSTOM FILES INCLUSIONS
 #include "Lab.h"
@@ -23,6 +25,8 @@ private:
 public:
 	[[noreturn]] void t1() override;
 	[[noreturn]] void t2() override;
+
+	vector<Triangle> parseTrianglesFile(ifstream& ifs);
 #pragma endregion
 };
 
