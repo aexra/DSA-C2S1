@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <set>
 
 // CUSTOM FILES INCLUSIONS
 #include "Lab.h"
@@ -12,6 +13,7 @@
 #include "random.h"
 #include "STDOutputManager.h"
 #include "UltraCoolNamespace.h"
+#include "SetExtensions.h"
 
 
 // USES

@@ -155,6 +155,7 @@ void Lab2::t2()
 	idopfile = ifstream("./resources/Lab2/digits.txt");
 	buffer = "";
 	size_t string_n = 1;
+	bool found = 0;
 	while (getline(idopfile, buffer)) {
 		for (size_t i = 0; i < buffer.length(); i++) {
 			string sub_tmp = "";
@@ -168,15 +169,27 @@ void Lab2::t2()
 				if (buffer[i+j] != sub[j]) { flag = 0; break; }
 			}
 			if (flag) {
-				cout << "Подстрока найдена: (" << string_n << ", " << i+1 << ")";
+				cout << "Подстрока найдена: (" << string_n << ", " << i+1 << ")" << endl;
+				found = 1;
 				idopfile.close();
-				return;
+				break;
 			}
 		}
 		string_n++;
 	}
 	idopfile.close();
-	cout << "Подстрока не найдена. Увы.";
+	if (!found) cout << "Подстрока не найдена. Увы.";
+
+	cout << "\n\nЭтап 3) ";
+	idopfile = ifstream("./resources/Lab2/digits.txt");
+	buffer = "";
+	set<string> words;
+	while (getline(idopfile, buffer)) {
+		vector<string> splitted = split(buffer);
+		for (const string& str : splitted) { words.insert(str); }
+	}
+	idopfile.close();
+	cout << "Уникальные слова: " << words << "\n\n";
 }
 
 vector<Triangle> Lab2::parseTrianglesFile(ifstream& ifs)
