@@ -2,9 +2,9 @@
 #include "StringExtensions.h"
 
 #define MANUAL_FILE_CREATION 1
-#define DIGITS_RANDOMLY_CREATED 10000
-#define MAX_RANDOM_VALUE 1000000.0
-#define MIN_RANDOM_VALUE -1000000.0
+#define DIGITS_RANDOMLY_CREATED 10
+#define MAX_RANDOM_VALUE 3.0
+#define MIN_RANDOM_VALUE -3.0
 
 void Lab2::t1()
 {
@@ -75,10 +75,20 @@ void Lab2::t2()
 
 	unsigned int count = 0;
 	string buffer;
+	vector<double> good_digits;
 	while (getline(ifile, buffer)) {
-		if (stod(buffer) < avarage) count++;
+		double digit = stod(buffer);
+		if (digit < avarage) count++;
+		good_digits.push_back(digit);
 	}
 	log("Среди сгенерированных чисел [" + to_string(count) + "] меньше среднего арифметического всех этих чисел", 1, "INFO-R");
+
+	string result = input("Отобразить подходящие числа? [y/n]   ->   ", "");
+	if (result == "y" || result == "Y")
+	{
+		for (unsigned int i = 0; i < count; i++)
+			cout << i+1 << ". " << good_digits[i] << endl;
+	}
 
 	ofile.close();
 	log("Поток записи в файл <digits.txt> закрыт");

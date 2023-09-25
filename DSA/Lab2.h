@@ -1,7 +1,6 @@
 #pragma once
 
 // BUILT-IN INCLUSIONS
-
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -11,6 +10,7 @@
 #include "Triangle.h"
 #include "debug.h"
 #include "random.h"
+#include "STDOutputManager.h"
 
 
 // USES
