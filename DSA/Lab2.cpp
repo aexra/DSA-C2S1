@@ -29,12 +29,20 @@ void Lab2::t1()
 	log("Заполнение файла...");
 	for (auto& tri : vec)
 	{
-		ofile << tri << "\t : ";
+		ofile << tri << "\t => ";
+		cout << tri << "\t => ";
 		if (tri.isValid())
-			ofile << tri.getArea();
+		{
+			ofile << "P=" << tri.getPerimeter() << "\tS=" << tri.getArea();
+			cout << "\tP=" << tri.getPerimeter() << "\tS=" << tri.getArea();
+		}
 		else
+		{
 			ofile << "Треугольник невозможен";
+			cout << "\tТреугольник невозможен";
+		}
 		ofile << endl;
+		cout << endl;
 	}
 	ofile << "\n\n";
 	log("Файл заполнен");
