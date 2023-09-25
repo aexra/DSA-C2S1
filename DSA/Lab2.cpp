@@ -149,6 +149,34 @@ void Lab2::t2()
 	}
 	if (k != n) cout << "Строка с таким номером не найдена! Подумайте над своим поведением.";
 	idopfile.close();
+
+	cout << "\n\nЭтап 2) ";
+	string sub = input("Введите искомую подстроку: ", "");
+	idopfile = ifstream("./resources/Lab2/digits.txt");
+	buffer = "";
+	size_t string_n = 1;
+	while (getline(idopfile, buffer)) {
+		for (size_t i = 0; i < buffer.length(); i++) {
+			string sub_tmp = "";
+			bool flag = 1;
+			for (size_t j = 0; j < sub.length(); j++) {
+				if (i+j > buffer.length() - 1)
+				{
+					flag = 0;
+					break;
+				}
+				if (buffer[i+j] != sub[j]) { flag = 0; break; }
+			}
+			if (flag) {
+				cout << "Подстрока найдена: (" << string_n << ", " << i+1 << ")";
+				idopfile.close();
+				return;
+			}
+		}
+		string_n++;
+	}
+	idopfile.close();
+	cout << "Подстрока не найдена. Увы.";
 }
 
 vector<Triangle> Lab2::parseTrianglesFile(ifstream& ifs)
