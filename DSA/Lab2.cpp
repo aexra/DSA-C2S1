@@ -59,13 +59,31 @@ void Lab2::t2()
 	log("Создан и открыт для записи файл <digits.txt>");
 	
 	HRND hrnd = new Random();
+	long double sum = 0;
 	for (unsigned int i = 0; i < DIGITS_RANDOMLY_CREATED; i++) {
-		ofile << hrnd->randf(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE) << endl;
+		double digit = hrnd->randf(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE);
+		sum += digit;
+		ofile << digit << endl;
 	}
 	log("Сгенерировано и записано в файл [" + to_string(DIGITS_RANDOMLY_CREATED) + "] значений");
 
+	long double avarage = sum / (double)DIGITS_RANDOMLY_CREATED;
+	log("Среднее арифметическое сгенерированных чисел: " + to_string(avarage), 1, "INFO-R");
+
+	ifstream ifile("./resources/Lab2/digits.txt");
+	log("Открыт поток для чтения файла <digits.txt>");
+
+	unsigned int count = 0;
+	string buffer;
+	while (getline(ifile, buffer)) {
+		if (stod(buffer) < avarage) count++;
+	}
+	log("Среди сгенерированных чисел [" + to_string(count) + "] меньше среднего арифметического всех этих чисел", 1, "INFO-R");
+
 	ofile.close();
 	log("Поток записи в файл <digits.txt> закрыт");
+
+
 }
 
 vector<Triangle> Lab2::parseTrianglesFile(ifstream& ifs)
