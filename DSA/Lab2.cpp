@@ -2,6 +2,9 @@
 #include "StringExtensions.h"
 
 #define MANUAL_FILE_CREATION 1
+#define DIGITS_RANDOMLY_CREATED 10000
+#define MAX_RANDOM_VALUE 1000000.0
+#define MIN_RANDOM_VALUE -1000000.0
 
 void Lab2::t1()
 {
@@ -53,10 +56,16 @@ void Lab2::t1()
 void Lab2::t2()
 {
 	ofstream ofile("./resources/Lab2/digits.txt", ios_base::trunc);
+	log("Создан и открыт для записи файл <digits.txt>");
 	
 	HRND hrnd = new Random();
+	for (unsigned int i = 0; i < DIGITS_RANDOMLY_CREATED; i++) {
+		ofile << hrnd->randf(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE) << endl;
+	}
+	log("Сгенерировано и записано в файл [" + to_string(DIGITS_RANDOMLY_CREATED) + "] значений");
 
 	ofile.close();
+	log("Поток записи в файл <digits.txt> закрыт");
 }
 
 vector<Triangle> Lab2::parseTrianglesFile(ifstream& ifs)
