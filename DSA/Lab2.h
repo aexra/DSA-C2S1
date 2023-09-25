@@ -11,6 +11,7 @@
 #include "debug.h"
 #include "random.h"
 #include "STDOutputManager.h"
+#include "UltraCoolNamespace.h"
 
 
 // USES

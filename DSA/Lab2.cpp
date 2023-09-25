@@ -1,6 +1,8 @@
 #include "Lab2.h"
 #include "StringExtensions.h"
 
+using namespace SpecialFunctionsForLabs;
+
 #define MANUAL_FILE_CREATION 1
 #define DIGITS_RANDOMLY_CREATED 10
 #define MAX_RANDOM_VALUE 3.0
@@ -51,6 +53,40 @@ void Lab2::t1()
 	log("‘айл заполнен");
 	ofile.close();
 	log("ѕоток записи закрыт");
+
+	if (input("–ешить ƒоѕоЋн»т≈л№нќе задание???  [y/n]   ->   ", "") != "y") return;
+	cout << "\nƒќѕќЋЌ»“≈Ћ№Ќќ≈ «јƒјЌ»≈\n\n";
+
+	cout << "Ётап 1)";
+	ofstream odopfile("./resources/Lab2/output1.txt", ios_base::app);
+	HRND rnd = new Random();
+	for (unsigned int i = 0; i < DIGITS_RANDOMLY_CREATED; i++) {
+		odopfile << rnd->randf(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE) << endl;
+	}
+	odopfile << "\n\n";
+	odopfile.close();
+	ifstream idopfile("./resources/Lab2/output1.txt");
+	string buffer;
+	size_t count = 0;
+	while (getline(idopfile, buffer)) {
+		if (is_double(buffer) && stod(buffer) < 0) count++;
+	}
+	cout << " ƒобавил в файл рандомные числа -> ќтрицательных: " + to_string(count) << endl;
+	idopfile.close();
+
+	cout << "Ётап 2) ";
+	idopfile = ifstream("./resources/Lab2/output1.txt");
+	char ch = input("¬ведите вставл€емый символ: ", "")[0];
+	buffer = "";
+	string text;
+	while (getline(idopfile, buffer)) text += buffer + '\n';
+	size_t len = text.length();
+	int ri = rnd->randi(0, len - 1);
+	text.insert(text.begin() + ri, ch);
+	idopfile.close();
+	odopfile = ofstream("./resources/Lab2/output1.txt", ios_base::trunc);
+	odopfile << text;
+	cout << "¬ставил в исходный файл букву [" << ch << "] на место по индексу (символа) [" << ri << "]\n";
 }
 
 void Lab2::t2()
