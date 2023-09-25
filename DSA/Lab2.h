@@ -10,6 +10,7 @@
 #include "Lab.h"
 #include "Triangle.h"
 #include "debug.h"
+#include "random.h"
 
 
 // USES

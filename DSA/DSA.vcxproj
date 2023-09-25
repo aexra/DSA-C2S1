@@ -138,6 +138,7 @@
     <ClCompile Include="Lab3.cpp" />
     <ClCompile Include="LabManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="random.cpp" />
     <ClCompile Include="STDOutputManager.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
@@ -150,10 +151,15 @@
     <ClInclude Include="Lab3.h" />
     <ClInclude Include="LabManager.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="random.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SetExtensions.h" />
     <ClInclude Include="STDOutputManager.h" />
     <ClInclude Include="StringExtensions.h" />
     <ClInclude Include="Triangle.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DSA.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

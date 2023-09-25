@@ -52,6 +52,11 @@ void Lab2::t1()
 
 void Lab2::t2()
 {
+	ofstream ofile("./resources/Lab2/digits.txt", ios_base::trunc);
+	
+	HRND hrnd = new Random();
+
+	ofile.close();
 }
 
 vector<Triangle> Lab2::parseTrianglesFile(ifstream& ifs)
