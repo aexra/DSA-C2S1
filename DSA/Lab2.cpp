@@ -133,8 +133,8 @@ void Lab2::t2()
 	log("Поток записи в файл <digits.txt> закрыт");
 
 	if (input("\n\nРешить ДоПоЛнИтЕлЬнОе задание???  [y/n]   ->   ", "") != "y") return;
-	cout << "\nДОПОЛНИТЕЛЬНОЕ ЗАДАНИЕ\n\n";
-
+	cout << "ДОПОЛНИТЕЛЬНОЕ ЗАДАНИЕ\n\n";
+	cout << "\nЭтап 1) ";
 	unsigned int n = input<unsigned int>("Введите номер искомой строки: ");
 	ifstream idopfile("./resources/Lab2/digits.txt");
 	buffer = "";
