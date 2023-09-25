@@ -14,6 +14,7 @@
 #include "STDOutputManager.h"
 #include "UltraCoolNamespace.h"
 #include "SetExtensions.h"
+#include "StringExtensions.h"
 
 
 // USES

@@ -1,5 +1,4 @@
 #include "Lab2.h"
-#include "StringExtensions.h"
 
 using namespace SpecialFunctionsForLabs;
 
