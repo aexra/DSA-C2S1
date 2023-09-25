@@ -78,8 +78,11 @@ void Lab2::t2()
 	vector<double> good_digits;
 	while (getline(ifile, buffer)) {
 		double digit = stod(buffer);
-		if (digit < avarage) count++;
-		good_digits.push_back(digit);
+		if (digit < avarage)
+		{
+			count++;
+			good_digits.push_back(digit);
+		}
 	}
 	log("Среди сгенерированных чисел [" + to_string(count) + "] меньше среднего арифметического всех этих чисел", 1, "INFO-R");
 
@@ -92,8 +95,6 @@ void Lab2::t2()
 
 	ofile.close();
 	log("Поток записи в файл <digits.txt> закрыт");
-
-
 }
 
 vector<Triangle> Lab2::parseTrianglesFile(ifstream& ifs)
