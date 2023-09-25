@@ -131,6 +131,12 @@ void Lab2::t2()
 
 	ofile.close();
 	log("ѕоток записи в файл <digits.txt> закрыт");
+
+	if (input("–ешить ƒоѕоЋн»т≈л№нќе задание???  [y/n]   ->   ", "") != "y") return;
+	cout << "\nƒќѕќЋЌ»“≈Ћ№Ќќ≈ «јƒјЌ»≈\n\n";
+
+	unsigned int n = input<unsigned int>("¬ведите номер искомой строки: ");
+
 }
 
 vector<Triangle> Lab2::parseTrianglesFile(ifstream& ifs)

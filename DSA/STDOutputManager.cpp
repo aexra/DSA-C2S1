@@ -14,6 +14,6 @@ std::string input(std::string msg, std::string end)
 {
 	std::cout << msg << end;
 	std::string buffer;
-	std::cin >> buffer;
+	std::getline(std::cin, buffer);
 	return buffer;
 }
