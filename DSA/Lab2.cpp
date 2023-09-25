@@ -132,11 +132,23 @@ void Lab2::t2()
 	ofile.close();
 	log("ѕоток записи в файл <digits.txt> закрыт");
 
-	if (input("–ешить ƒоѕоЋн»т≈л№нќе задание???  [y/n]   ->   ", "") != "y") return;
+	if (input("\n\n–ешить ƒоѕоЋн»т≈л№нќе задание???  [y/n]   ->   ", "") != "y") return;
 	cout << "\nƒќѕќЋЌ»“≈Ћ№Ќќ≈ «јƒјЌ»≈\n\n";
 
 	unsigned int n = input<unsigned int>("¬ведите номер искомой строки: ");
-
+	ifstream idopfile("./resources/Lab2/digits.txt");
+	buffer = "";
+	size_t k = 1;
+	while (getline(idopfile, buffer)) {
+		if (k == n)
+		{
+			cout << "»скома€ строка: \n" << n << ". " << buffer << endl;
+			break;
+		}
+		k++;
+	}
+	if (k != n) cout << "—трока с таким номером не найдена! ѕодумайте над своим поведением.";
+	idopfile.close();
 }
 
 vector<Triangle> Lab2::parseTrianglesFile(ifstream& ifs)
