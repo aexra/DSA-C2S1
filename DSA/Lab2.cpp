@@ -168,7 +168,7 @@ void Lab2::t2()
 				if (buffer[i+j] != sub[j]) { flag = 0; break; }
 			}
 			if (flag) {
-				cout << "Подстрока найдена: (" << string_n << ", " << i+1 << ")" << endl;
+				cout << "Подстрока найдена: " << buffer << " (" << string_n << ", " << i + 1 << ")" << endl;
 				found = 1;
 				idopfile.close();
 				break;
