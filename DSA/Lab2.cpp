@@ -7,6 +7,12 @@ using namespace SpecialFunctionsForLabs;
 #define MAX_RANDOM_VALUE 3.0
 #define MIN_RANDOM_VALUE -3.0
 
+struct FoundSubString
+{
+	string substr;
+	string position;
+};
+
 void Lab2::t1()
 {
 	if (!MANUAL_FILE_CREATION)
@@ -155,6 +161,7 @@ void Lab2::t2()
 	buffer = "";
 	size_t string_n = 1;
 	bool found = 0;
+	vector<FoundSubString> substrings = {};
 	while (getline(idopfile, buffer)) {
 		for (size_t i = 0; i < buffer.length(); i++) {
 			string sub_tmp = "";
@@ -168,10 +175,12 @@ void Lab2::t2()
 				if (buffer[i+j] != sub[j]) { flag = 0; break; }
 			}
 			if (flag) {
-				cout << "Подстрока найдена: " << buffer << " (" << string_n << ", " << i + 1 << ")" << endl;
+				FoundSubString fss;
+				fss.substr = buffer;
+				fss.position = " (" + to_string(string_n) + ", " + to_string(i + 1) + ")";
+				cout << "Подстрока найдена: " << fss.substr << " " << fss.position << endl;
 				found = 1;
-				idopfile.close();
-				break;
+				substrings.push_back(fss);
 			}
 		}
 		string_n++;
