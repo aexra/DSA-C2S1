@@ -1,7 +1,7 @@
 #include "LabManager.h"
 
 LabManager* LabManager::p_instance = nullptr;
-string LabManager::title = "| Фомин Н. А. ВПР22\t\t|\n| Вариант №12\t\t\t|";
+string LabManager::title = "| Фомин Н. А. ВПР22\t\t|\n| Вариант №14\t\t\t|";
 
 LabManager::LabManager()
 {
