@@ -6,6 +6,7 @@
 
 // CUSTOM FILES INCLUSIONS
 #include "Lab.h"
+#include "UltraCoolNamespace.h"
 
 
 // USES
