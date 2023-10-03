@@ -34,4 +34,17 @@ void Lab3::t1()
 
 void Lab3::t2()
 {
+	const double C = input<double>("Введите C: ", "Ошибка ввода! Повторите ввод: ", true);
+	const unsigned int n = input<unsigned int>("Введите размер одномерного массива: ");
+
+	double* arr = new double[n];
+	unsigned int count = 0;
+
+	for (unsigned int i = 0; i < n; i++)
+	{
+		*(arr + i) = input<double>("Введите " + to_string(i+1) + "-й элемент массива: ", "Ошибка ввода! Повторите ввод: ", true);
+		count += *(arr + i) > C;
+	}
+
+	cout << endl << "Количество элементов, больших С: " << count;
 }

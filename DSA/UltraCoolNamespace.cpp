@@ -14,9 +14,12 @@ bool SpecialFunctionsForLabs::is_int(string str)
 
 	return true;
 }
-bool SpecialFunctionsForLabs::is_double(string str)
+bool SpecialFunctionsForLabs::is_double(string str, bool canBeInt)
 {
 	if (str.length() < 1) return false;
+
+	if (canBeInt && SpecialFunctionsForLabs::is_int(str)) return true;
+	if (!SpecialFunctionsForLabs::is_int(str) && find(str.begin(), str.end(), '.') == str.end()) return false;
 
 	if (count(str.begin(), str.end(), '-') > 0 && str[0] != '-') return false;
 	if (count(str.begin(), str.end(), '-') > 1) return false;

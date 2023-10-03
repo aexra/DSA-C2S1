@@ -6,14 +6,14 @@ using namespace std;
 
 namespace SpecialFunctionsForLabs {
 	bool is_int(string str);
-	bool is_double(string str);
+	bool is_double(string str, bool canBeInt = false);
 	bool is_char(string str);
 	bool is_natural(string str);
 	string dtos(double value, unsigned int absolutePresision = 2);
 	double round(double value, unsigned int precision);
 
 	template<typename T>
-	T input(string _Message = "", string _DefaultErrorMessage = "Ошибка ввода! Повторите ввод: ")
+	T input(string _Message = "", string _DefaultErrorMessage = "Ошибка ввода! Повторите ввод: ", bool _FlagArg = 0)
 	{
 		cout << _Message;
 		string input;
@@ -34,14 +34,14 @@ namespace SpecialFunctionsForLabs {
 			return stoi(input);
 		}
 		else if (is_same<T, float>::value) {
-			while (!is_double(input)) {
+			while (!is_double(input, _FlagArg)) {
 				cout << _DefaultErrorMessage;
 				getline(cin, input);
 			}
 			return stof(input);  // для setlocale(LC_NUMERIC, "C")
 		}
 		else if (is_same<T, double>::value) {
-			while (!is_double(input)) {
+			while (!is_double(input, _FlagArg)) {
 				cout << _DefaultErrorMessage;
 				getline(cin, input);
 			}
