@@ -23,6 +23,15 @@ private:
 public:
 	[[noreturn]] void t1() override;
 	[[noreturn]] void t2() override;
+
+	template <typename T>
+	T* NewPointer() { return new T(); }
+
+	template <typename T>
+	T* WritePointer(T* p, T value) { *p = value; return p; }
+
+	template <typename T>
+	T ReadPointer(T* p) { return *p; }
 #pragma endregion
 };
 
