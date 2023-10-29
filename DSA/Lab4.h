@@ -23,8 +23,12 @@ private:
 #pragma endregion
 #pragma region Public
 public:
+	typedef int LT;
+
 	[[noreturn]] void t1() override;
 	[[noreturn]] void t2() override;
+
+	void PrintAry(LT* _Right, size_t size);
 #pragma endregion
 };
 
