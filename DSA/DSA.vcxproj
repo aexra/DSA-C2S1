@@ -136,6 +136,7 @@
     <ClCompile Include="Lab1.cpp" />
     <ClCompile Include="Lab2.cpp" />
     <ClCompile Include="Lab3.cpp" />
+    <ClCompile Include="Lab4.cpp" />
     <ClCompile Include="LabManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="random.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="Lab1.h" />
     <ClInclude Include="Lab2.h" />
     <ClInclude Include="Lab3.h" />
+    <ClInclude Include="Lab4.h" />
     <ClInclude Include="LabManager.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="random.h" />

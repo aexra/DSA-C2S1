@@ -11,6 +11,7 @@
 #include "Lab1.h"
 #include "Lab2.h"
 #include "Lab3.h"
+#include "Lab4.h"
 
 class LabManager
 {
