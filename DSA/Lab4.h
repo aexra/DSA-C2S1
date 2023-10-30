@@ -14,6 +14,15 @@
 // USES
 using namespace std;
 
+// структура результата выполненной сортировки
+struct SortResult
+{
+	unsigned int ms;
+	unsigned int iterations;
+	unsigned int comparisons;
+	unsigned int exchanges;
+};
+
 /*			LAB CLASS				*/
 class Lab4 : public Lab
 {
@@ -30,20 +39,11 @@ public:
 
 	void PrintAry(LT* _Right, size_t size);
 
-	// структура результата выполненной сортировки
-	struct SortResult
-	{
-		unsigned int ms;
-		unsigned int iterations;
-		unsigned int comparisons;
-		unsigned int exchanges;
-	};
-
 	// соритровки
-	void InclusionSort(int* num, int size);
-	void SelectionSort(int* num, int size);
-	void BubbleSort(int* num, int size);
-	void QuickSort(int* numbers, size_t start, size_t end);
+	SortResult InclusionSort(int* num, int size);
+	SortResult SelectionSort(int* num, int size);
+	SortResult BubbleSort(int* num, int size);
+	SortResult QuickSort(int* numbers, size_t start, size_t end);
 	void Swap(int* numbers, size_t first, size_t second);
 #pragma endregion
 };

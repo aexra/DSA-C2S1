@@ -29,7 +29,7 @@ void Lab4::PrintAry(LT* _Right, size_t size)
 	cout << "]";
 }
 
-void Lab4::InclusionSort(int* num, int size)
+SortResult Lab4::InclusionSort(int* num, int size)
 {
 	for (int i = 1; i < size; i++)
 	{
@@ -43,7 +43,7 @@ void Lab4::InclusionSort(int* num, int size)
 		num[index] = value;
 	}
 }
-void Lab4::SelectionSort(int* num, int size)
+SortResult Lab4::SelectionSort(int* num, int size)
 {
 	int min, temp;
 	for (int i = 0; i < size - 1; i++)
@@ -59,7 +59,7 @@ void Lab4::SelectionSort(int* num, int size)
 		num[min] = temp;
 	}
 }
-void Lab4::BubbleSort(int* num, int size)
+SortResult Lab4::BubbleSort(int* num, int size)
 {
 	for (int i = 0; i < size - 1; i++)
 	{
@@ -74,7 +74,7 @@ void Lab4::BubbleSort(int* num, int size)
 		}
 	}
 }
-void Lab4::QuickSort(int* numbers, size_t start, size_t end)
+SortResult Lab4::QuickSort(int* numbers, size_t start, size_t end)
 {
 	if (start >= end)
 		return;
