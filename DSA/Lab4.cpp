@@ -10,8 +10,6 @@ void Lab4::t1()
 	LT* a3000 = rnd->GetRandFilledArrayT<LT>(3000);
 	LT* a5000 = rnd->GetRandFilledArrayT<LT>(5000);
 	LT* a10000 = rnd->GetRandFilledArrayT<LT>(10000);
-
-	PrintAry(a20, 20);
 }
 
 void Lab4::t2()
