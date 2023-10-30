@@ -30,6 +30,15 @@ public:
 
 	void PrintAry(LT* _Right, size_t size);
 
+	// структура результата выполненной сортировки
+	struct SortResult
+	{
+		unsigned int ms;
+		unsigned int iterations;
+		unsigned int comparisons;
+		unsigned int exchanges;
+	};
+
 	// соритровки
 	void InclusionSort(int* num, int size);
 	void SelectionSort(int* num, int size);
