@@ -29,6 +29,13 @@ public:
 	[[noreturn]] void t2() override;
 
 	void PrintAry(LT* _Right, size_t size);
+
+	// соритровки
+	void InclusionSort(int* num, int size);
+	void SelectionSort(int* num, int size);
+	void BubbleSort(int* num, int size);
+	void QuickSort(int* numbers, size_t start, size_t end);
+	void Swap(int* numbers, size_t first, size_t second);
 #pragma endregion
 };
 
