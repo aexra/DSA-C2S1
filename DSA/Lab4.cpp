@@ -157,14 +157,28 @@ void Lab4::Swap(int* numbers, size_t first, size_t second)
 	numbers[first] = numbers[second];
 	numbers[second] = temp;
 }
+size_t CTFI(int i)
+{
+	string s = to_string(i);
+	return s.length() > 8 ? 0 : s.length() > 6? 1 : 2;
+}
+string GTFI(int i)
+{
+	string s = "";
+	for (int j = 0; j < CTFI(i); j++)
+	{
+		s += "\t";
+	}
+	return s;
+}
 void Lab4::DropTable(SortResult a20, SortResult a500, SortResult a1000, SortResult a3000, SortResult a5000, SortResult a10000, string msg)
 {
 	if (msg != "") cout << msg << endl;
 	cout << "Размер\t\t\|20\t\t|500\t\t|1000\t\t|3000\t\t|5000\t\t|10000\t\t" << endl;
-	cout << "Время\t\t|" << a20.ms << "\t\t|" << a500.ms << "\t\t|" << a1000.ms << "\t\t|" << a3000.ms << "\t\t|" << a5000.ms << "\t\t|" << a10000.ms << "\t\t" << endl;
-	cout << "Итерации\t|" << a20.iterations << "\t\t|" << a500.iterations << "\t\t|" << a1000.iterations << "\t\t|" << a3000.iterations << "\t\t|" << a5000.iterations << "\t\t|" << a10000.iterations << "\t\t" << endl;
-	cout << "Сравнения\t|" << a20.comparisons << "\t\t|" << a500.comparisons << "\t\t|" << a1000.comparisons << "\t\t|" << a3000.comparisons << "\t\t|" << a5000.comparisons << "\t\t|" << a10000.comparisons << "\t\t" << endl;
-	cout << "Обмены\t\t|" << a20.exchanges << "\t\t|" << a500.exchanges << "\t\t|" << a1000.exchanges << "\t\t|" << a3000.exchanges << "\t\t|" << a5000.exchanges << "\t\t|" << a10000.exchanges << "\t\t" << endl;
+	cout << "Время\t\t|" << a20.ms << GTFI(a20.ms) << "|" << a500.ms << GTFI(a500.ms) << "|" << a1000.ms << GTFI(a1000.ms) << "|" << a3000.ms << GTFI(a3000.ms) << "|" << a5000.ms << GTFI(a5000.ms) << "|" << a10000.ms << endl;
+	cout << "Итерации\t|" << a20.iterations << GTFI(a20.iterations) << "|" << a500.iterations << GTFI(a500.iterations) << "|" << a1000.iterations << GTFI(a1000.iterations) << "|" << a3000.iterations << GTFI(a3000.iterations) << "|" << a5000.iterations << GTFI(a5000.iterations) << "|" << a10000.iterations << endl;
+	cout << "Сравнения\t|" << a20.comparisons << GTFI(a20.comparisons) << "|" << a500.comparisons << GTFI(a500.comparisons) << "|" << a1000.comparisons << GTFI(a1000.comparisons) << "|" << a3000.comparisons << GTFI(a3000.comparisons) << "|" << a5000.comparisons << GTFI(a5000.comparisons) << "|" << a10000.comparisons << endl;
+	cout << "Обмены\t\t|" << a20.exchanges << GTFI(a20.exchanges) << "|" << a500.exchanges << GTFI(a500.exchanges) << "|" << a1000.exchanges << GTFI(a1000.exchanges) << "|" << a3000.exchanges << GTFI(a3000.exchanges) << "|" << a5000.exchanges << GTFI(a5000.exchanges) << "|" << a10000.exchanges << endl;
 	cout << "\n\n";
 }
 Lab4::LT* Lab4::GetArrayClone(LT* a, size_t size)
