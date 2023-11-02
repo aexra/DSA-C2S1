@@ -70,10 +70,12 @@ SortResult Lab4::InclusionSort(int* num, int size)
 	{
 		int value = num[i];
 		int index = i;
-		while ((index > 0) && (num[index - 1] > value))
+		while ((index > 0) && (num[index - 1] > value) && result.comparisons++)
 		{
 			num[index] = num[index - 1];
+			result.exchanges++;
 			index--;
+			result.iterations++;
 		}
 		num[index] = value;
 	}
@@ -90,12 +92,14 @@ SortResult Lab4::SelectionSort(int* num, int size)
 		min = i;
 		for (int j = i + 1; j < size; j++)
 		{
-			if (num[j] < num[min])
+			if (num[j] < num[min] && result.comparisons++)
 				min = j;
+			result.iterations++;
 		}
 		temp = num[i];
 		num[i] = num[min];
 		num[min] = temp;
+		result.exchanges++;
 	}
 	result.ms = clock() - startms;
 	return result;
@@ -108,12 +112,14 @@ SortResult Lab4::BubbleSort(int* num, int size)
 	{
 		for (int j = (size - 1); j > i; j--)
 		{
-			if (num[j - 1] > num[j])
+			if (num[j - 1] > num[j] && result.comparisons++)
 			{
 				int temp = num[j - 1];
 				num[j - 1] = num[j];
 				num[j] = temp;
+				result.exchanges++;
 			}
+			result.iterations++;
 		}
 	}
 	result.ms = clock() - startms;
