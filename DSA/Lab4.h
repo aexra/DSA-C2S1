@@ -46,6 +46,8 @@ public:
 	SortResult QuickSort(int* numbers, size_t start, size_t end);
 	void Swap(int* numbers, size_t first, size_t second);
 	void DropTable(SortResult a20, SortResult a500, SortResult a1000, SortResult a3000, SortResult a5000, SortResult a10000, string msg = "");
+	
+	LT* GetArrayClone(LT* a, size_t size);
 #pragma endregion
 };
 

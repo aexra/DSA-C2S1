@@ -4,37 +4,37 @@ void Lab4::t1()
 {
 	HRND rnd = new Random();
 
-	LT* a20 = rnd->GetRandFilledArrayT<LT>(20);
-	LT* a500 = rnd->GetRandFilledArrayT<LT>(500);
-	LT* a1000 = rnd->GetRandFilledArrayT<LT>(1000);
-	LT* a3000 = rnd->GetRandFilledArrayT<LT>(3000);
-	LT* a5000 = rnd->GetRandFilledArrayT<LT>(5000);
-	LT* a10000 = rnd->GetRandFilledArrayT<LT>(10000);
+	LT* ua20 = rnd->GetRandFilledArrayT<LT>(20);
+	LT* ua500 = rnd->GetRandFilledArrayT<LT>(500);
+	LT* ua1000 = rnd->GetRandFilledArrayT<LT>(1000);
+	LT* ua3000 = rnd->GetRandFilledArrayT<LT>(3000);
+	LT* ua5000 = rnd->GetRandFilledArrayT<LT>(5000);
+	LT* ua10000 = rnd->GetRandFilledArrayT<LT>(10000);
 
-	SortResult ssr20 = SelectionSort(a20, 20);
-	SortResult ssr500 = SelectionSort(a500, 500);
-	SortResult ssr1000 = SelectionSort(a1000, 1000);
-	SortResult ssr3000 = SelectionSort(a3000, 3000);
-	SortResult ssr5000 = SelectionSort(a5000, 5000);
-	SortResult ssr10000 = SelectionSort(a10000, 10000);
+	SortResult ssr20 = SelectionSort(GetArrayClone(ua20, 20), 20);
+	SortResult ssr500 = SelectionSort(GetArrayClone(ua500, 500), 500);
+	SortResult ssr1000 = SelectionSort(GetArrayClone(ua1000, 1000), 1000);
+	SortResult ssr3000 = SelectionSort(GetArrayClone(ua3000, 3000), 3000);
+	SortResult ssr5000 = SelectionSort(GetArrayClone(ua5000, 5000), 5000);
+	SortResult ssr10000 = SelectionSort(GetArrayClone(ua10000, 10000), 10000);
 
 	DropTable(ssr20, ssr500, ssr1000, ssr3000, ssr5000, ssr10000, "Сортировка сравнениями");
 
-	SortResult isr20 = InclusionSort(a20, 20);
-	SortResult isr500 = InclusionSort(a500, 500);
-	SortResult isr1000 = InclusionSort(a1000, 1000);
-	SortResult isr3000 = InclusionSort(a3000, 3000);
-	SortResult isr5000 = InclusionSort(a5000, 5000);
-	SortResult isr10000 = InclusionSort(a10000, 10000);
+	SortResult isr20 = InclusionSort(GetArrayClone(ua20, 20), 20);
+	SortResult isr500 = InclusionSort(GetArrayClone(ua500, 500), 500);
+	SortResult isr1000 = InclusionSort(GetArrayClone(ua1000, 1000), 1000);
+	SortResult isr3000 = InclusionSort(GetArrayClone(ua3000, 3000), 3000);
+	SortResult isr5000 = InclusionSort(GetArrayClone(ua5000, 5000), 5000);
+	SortResult isr10000 = InclusionSort(GetArrayClone(ua10000, 10000), 10000);
 
 	DropTable(ssr20, isr500, isr1000, isr3000, isr5000, isr10000, "Сортировка вставками");
 
-	SortResult bsr20 = BubbleSort(a20, 20);
-	SortResult bsr500 = BubbleSort(a500, 500);
-	SortResult bsr1000 = BubbleSort(a1000, 1000);
-	SortResult bsr3000 = BubbleSort(a3000, 3000);
-	SortResult bsr5000 = BubbleSort(a5000, 5000);
-	SortResult bsr10000 = BubbleSort(a10000, 10000);
+	SortResult bsr20 = BubbleSort(GetArrayClone(ua20, 20), 20);
+	SortResult bsr500 = BubbleSort(GetArrayClone(ua500, 500), 500);
+	SortResult bsr1000 = BubbleSort(GetArrayClone(ua1000, 1000), 1000);
+	SortResult bsr3000 = BubbleSort(GetArrayClone(ua3000, 3000), 3000);
+	SortResult bsr5000 = BubbleSort(GetArrayClone(ua5000, 5000), 5000);
+	SortResult bsr10000 = BubbleSort(GetArrayClone(ua10000, 10000), 10000);
 
 	DropTable(bsr20, bsr500, bsr1000, bsr3000, bsr5000, bsr10000, "Сортировка пузырьком");
 
@@ -65,6 +65,7 @@ void Lab4::PrintAry(LT* _Right, size_t size)
 SortResult Lab4::InclusionSort(int* num, int size)
 {
 	SortResult result;
+	double startms = clock();
 	for (int i = 1; i < size; i++)
 	{
 		int value = num[i];
@@ -76,11 +77,13 @@ SortResult Lab4::InclusionSort(int* num, int size)
 		}
 		num[index] = value;
 	}
+	result.ms = clock() - startms;
 	return result;
 }
 SortResult Lab4::SelectionSort(int* num, int size)
 {
 	SortResult result;
+	double startms = clock();
 	int min, temp;
 	for (int i = 0; i < size - 1; i++)
 	{
@@ -94,11 +97,13 @@ SortResult Lab4::SelectionSort(int* num, int size)
 		num[i] = num[min];
 		num[min] = temp;
 	}
+	result.ms = clock() - startms;
 	return result;
 }
 SortResult Lab4::BubbleSort(int* num, int size)
 {
 	SortResult result;
+	double startms = clock();
 	for (int i = 0; i < size - 1; i++)
 	{
 		for (int j = (size - 1); j > i; j--)
@@ -111,11 +116,13 @@ SortResult Lab4::BubbleSort(int* num, int size)
 			}
 		}
 	}
+	result.ms = clock() - startms;
 	return result;
 }
 SortResult Lab4::QuickSort(int* numbers, size_t start, size_t end)
 {
 	SortResult result;
+	double startms = clock();
 	if (start >= end)
 		return result;
 	size_t current{ start };
@@ -135,6 +142,7 @@ SortResult Lab4::QuickSort(int* numbers, size_t start, size_t end)
 	{
 		QuickSort(numbers, current + 1, end);
 	}
+	result.ms = clock() - startms;
 	return result;
 }
 void Lab4::Swap(int* numbers, size_t first, size_t second)
@@ -152,4 +160,13 @@ void Lab4::DropTable(SortResult a20, SortResult a500, SortResult a1000, SortResu
 	cout << "Сравнения\t|" << a20.comparisons << "\t\t|" << a500.comparisons << "\t\t|" << a1000.comparisons << "\t\t|" << a3000.comparisons << "\t\t|" << a5000.comparisons << "\t\t|" << a10000.comparisons << "\t\t" << endl;
 	cout << "Обмены\t\t|" << a20.exchanges << "\t\t|" << a500.exchanges << "\t\t|" << a1000.exchanges << "\t\t|" << a3000.exchanges << "\t\t|" << a5000.exchanges << "\t\t|" << a10000.exchanges << "\t\t" << endl;
 	cout << "\n\n";
+}
+Lab4::LT* Lab4::GetArrayClone(LT* a, size_t size)
+{
+	LT* newa = new LT[size];
+	for (size_t i = 0; i < size; i++)
+	{
+		newa[i] = a[i];
+	}
+	return newa;
 }
