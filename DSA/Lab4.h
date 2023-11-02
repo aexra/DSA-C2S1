@@ -17,10 +17,10 @@ using namespace std;
 // структура результата выполненной сортировки
 struct SortResult
 {
-	unsigned int ms;
-	unsigned int iterations;
-	unsigned int comparisons;
-	unsigned int exchanges;
+	unsigned int ms = 0;
+	unsigned int iterations = 0;
+	unsigned int comparisons = 0;
+	unsigned int exchanges = 0;
 };
 
 /*			LAB CLASS				*/
@@ -45,6 +45,7 @@ public:
 	SortResult BubbleSort(int* num, int size);
 	SortResult QuickSort(int* numbers, size_t start, size_t end);
 	void Swap(int* numbers, size_t first, size_t second);
+	void DropTable(SortResult a20, SortResult a500, SortResult a1000, SortResult a3000, SortResult a5000, SortResult a10000, string msg = "");
 #pragma endregion
 };
 

@@ -18,12 +18,16 @@ void Lab4::t1()
 	SortResult ssr5000 = SelectionSort(a5000, 5000);
 	SortResult ssr10000 = SelectionSort(a10000, 10000);
 
+	DropTable(ssr20, ssr500, ssr1000, ssr3000, ssr5000, ssr10000, "Сортировка сравнениями");
+
 	SortResult isr20 = InclusionSort(a20, 20);
 	SortResult isr500 = InclusionSort(a500, 500);
 	SortResult isr1000 = InclusionSort(a1000, 1000);
 	SortResult isr3000 = InclusionSort(a3000, 3000);
 	SortResult isr5000 = InclusionSort(a5000, 5000);
 	SortResult isr10000 = InclusionSort(a10000, 10000);
+
+	DropTable(ssr20, isr500, isr1000, isr3000, isr5000, isr10000, "Сортировка вставками");
 
 	SortResult bsr20 = BubbleSort(a20, 20);
 	SortResult bsr500 = BubbleSort(a500, 500);
@@ -32,12 +36,16 @@ void Lab4::t1()
 	SortResult bsr5000 = BubbleSort(a5000, 5000);
 	SortResult bsr10000 = BubbleSort(a10000, 10000);
 
+	DropTable(bsr20, bsr500, bsr1000, bsr3000, bsr5000, bsr10000, "Сортировка пузырьком");
+
 	/*SortResult qsr20 = QuickSort(a20, 0, 20);
 	SortResult qsr500 = QuickSort(a500, 0, 500);
 	SortResult qsr1000 = QuickSort(a1000, 0, 1000);
 	SortResult qsr3000 = QuickSort(a3000, 0, 3000);
 	SortResult qsr5000 = QuickSort(a5000, 0, 5000);
 	SortResult qsr10000 = QuickSort(a10000, 0, 10000);*/
+
+	//DropTable(qsr20, qsr500, qsr1000, qsr3000, qsr5000, qsr10000, "Сортировка быстрая");
 }
 
 void Lab4::t2()
@@ -134,4 +142,14 @@ void Lab4::Swap(int* numbers, size_t first, size_t second)
 	auto temp{ numbers[first] };
 	numbers[first] = numbers[second];
 	numbers[second] = temp;
+}
+void Lab4::DropTable(SortResult a20, SortResult a500, SortResult a1000, SortResult a3000, SortResult a5000, SortResult a10000, string msg)
+{
+	if (msg != "") cout << msg << endl;
+	cout << "Размер\t\t\|20\t\t|500\t\t|1000\t\t|3000\t\t|5000\t\t|10000\t\t" << endl;
+	cout << "Время\t\t|" << a20.ms << "\t\t|" << a500.ms << "\t\t|" << a1000.ms << "\t\t|" << a3000.ms << "\t\t|" << a5000.ms << "\t\t|" << a10000.ms << "\t\t" << endl;
+	cout << "Итерации\t|" << a20.iterations << "\t\t|" << a500.iterations << "\t\t|" << a1000.iterations << "\t\t|" << a3000.iterations << "\t\t|" << a5000.iterations << "\t\t|" << a10000.iterations << "\t\t" << endl;
+	cout << "Сравнения\t|" << a20.comparisons << "\t\t|" << a500.comparisons << "\t\t|" << a1000.comparisons << "\t\t|" << a3000.comparisons << "\t\t|" << a5000.comparisons << "\t\t|" << a10000.comparisons << "\t\t" << endl;
+	cout << "Обмены\t\t|" << a20.exchanges << "\t\t|" << a500.exchanges << "\t\t|" << a1000.exchanges << "\t\t|" << a3000.exchanges << "\t\t|" << a5000.exchanges << "\t\t|" << a10000.exchanges << "\t\t" << endl;
+	cout << "\n\n";
 }
