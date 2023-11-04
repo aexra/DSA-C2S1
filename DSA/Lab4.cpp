@@ -57,11 +57,31 @@ void Lab4::t1()
 	LT* a50 = GetArrayClone(ua1000, 1000); QuickSort(a50, 0, 500-1);
 	LT* a75 = GetArrayClone(ua1000, 1000); QuickSort(a75, 0, 750-1);
 
+	cout << "\t\tПрямое направление" << "\n\n";
+
+	SortResult ssr25 = QuickSort(a25, 0, 1000 - 1);
+	SortResult ssr50 = QuickSort(a50, 0, 1000 - 1);
+	SortResult ssr75 = QuickSort(a75, 0, 1000 - 1);
+
+	DropTable(ssr25, ssr50, ssr75, "Сортировка сравнениями");
+
+	SortResult isr25 = QuickSort(a25, 0, 1000 - 1);
+	SortResult isr50 = QuickSort(a50, 0, 1000 - 1);
+	SortResult isr75 = QuickSort(a75, 0, 1000 - 1);
+
+	DropTable(isr25, isr50, isr75, "Сортировка вставками");
+
+	SortResult bsr25 = QuickSort(a25, 0, 1000 - 1);
+	SortResult bsr50 = QuickSort(a50, 0, 1000 - 1);
+	SortResult bsr75 = QuickSort(a75, 0, 1000 - 1);
+
+	DropTable(bsr25, bsr50, bsr75, "Сортировка пузырьком");
+
 	SortResult qsr25 = QuickSort(a25, 0, 1000 - 1);
 	SortResult qsr50 = QuickSort(a50, 0, 1000 - 1);
 	SortResult qsr75 = QuickSort(a75, 0, 1000 - 1);
 
-	DropTable(qsr25, qsr50, qsr75, "Прямое направление");
+	DropTable(qsr25, qsr50, qsr75, "Быстрая сортировка");
 }
 
 void Lab4::t2()
