@@ -38,14 +38,14 @@ void Lab4::t1()
 
 	DropTable(bsr20, bsr500, bsr1000, bsr3000, bsr5000, bsr10000, "Сортировка пузырьком");
 
-	/*SortResult qsr20 = QuickSort(a20, 0, 20);
-	SortResult qsr500 = QuickSort(a500, 0, 500);
-	SortResult qsr1000 = QuickSort(a1000, 0, 1000);
-	SortResult qsr3000 = QuickSort(a3000, 0, 3000);
-	SortResult qsr5000 = QuickSort(a5000, 0, 5000);
-	SortResult qsr10000 = QuickSort(a10000, 0, 10000);*/
+	SortResult qsr20 = QuickSort(GetArrayClone(ua20, 20), 0, 20-1);
+	SortResult qsr500 = QuickSort(GetArrayClone(ua500, 500), 0, 500-1);
+	SortResult qsr1000 = QuickSort(GetArrayClone(ua1000, 1000), 0, 1000-1);
+	SortResult qsr3000 = QuickSort(GetArrayClone(ua3000, 3000), 0, 3000-1);
+	SortResult qsr5000 = QuickSort(GetArrayClone(ua5000, 5000), 0, 5000-1);
+	SortResult qsr10000 = QuickSort(GetArrayClone(ua10000, 10000), 0, 10000-1);
 
-	//DropTable(qsr20, qsr500, qsr1000, qsr3000, qsr5000, qsr10000, "Сортировка быстрая");
+	DropTable(qsr20, qsr500, qsr1000, qsr3000, qsr5000, qsr10000, "Сортировка быстрая");
 }
 
 void Lab4::t2()
@@ -125,37 +125,47 @@ SortResult Lab4::BubbleSort(int* num, int size)
 	result.ms = clock() - startms;
 	return result;
 }
-SortResult Lab4::QuickSort(int* numbers, size_t start, size_t end)
+SortResult Lab4::QuickSort(int* num, size_t start, size_t end)
 {
 	SortResult result;
 	double startms = clock();
-	if (start >= end)
-		return result;
-	size_t current{ start };
-	for (size_t i{ start + 1 }; i <= end; i++)
-	{
-		if (numbers[i] < numbers[start])
-		{
-			Swap(numbers, ++current, i);
-		}
-	}
-	Swap(numbers, start, current);
-	if (current > start)
-	{
-		QuickSort(numbers, start, current - 1);
-	}
-	if (end > current + 1)
-	{
-		QuickSort(numbers, current + 1, end);
-	}
+	__QuickSort__(num, start, end);
 	result.ms = clock() - startms;
 	return result;
 }
-void Lab4::Swap(int* numbers, size_t first, size_t second)
+int Lab4::__Partition__(int a[], int start, int end)
 {
-	auto temp{ numbers[first] };
-	numbers[first] = numbers[second];
-	numbers[second] = temp;
+	int pivot = a[end];
+	int pIndex = start;
+
+	for (int i = start; i < end; i++)
+	{
+		if (a[i] <= pivot)
+		{
+			swap(a[i], a[pIndex]);
+			pIndex++;
+		}
+	}
+
+	swap(a[pIndex], a[end]);
+
+	return pIndex;
+}
+void Lab4::__QuickSort__(int a[], int start, int end)
+{
+	// базовое условие
+	if (start >= end) {
+		return;
+	}
+
+	// переставить элементы по оси
+	int pivot = __Partition__(a, start, end);
+
+	// повторяем подмассив, содержащий элементы, меньшие опорной точки
+	__QuickSort__(a, start, pivot - 1);
+
+	// повторяем подмассив, содержащий элементы, превышающие точку опоры
+	__QuickSort__(a, pivot + 1, end);
 }
 size_t CTFI(int i)
 {
