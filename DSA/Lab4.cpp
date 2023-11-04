@@ -49,6 +49,19 @@ void Lab4::t1()
 	SortResult qsr10000 = QuickSort(GetArrayClone(ua10000, 10000), 0, 10000-1);
 
 	DropTable(qsr20, qsr500, qsr1000, qsr3000, qsr5000, qsr10000, "Сортировка быстрая");
+
+	cout << "ИССЛЕДОВАНИЕ ВЛИЯНИЯ НАЧАЛЬНОЙ УПОРЯДОЧЕННОСТИ МАССИВОВ" << "\n\n";
+	cout << "Будем использовать массив на 10000 эл-тов, заранее упорядочим через метод быстрой сортировки" << "\n\n";
+
+	LT* a25 = GetArrayClone(ua1000, 1000); QuickSort(a25, 0, 250-1);
+	LT* a50 = GetArrayClone(ua1000, 1000); QuickSort(a50, 0, 500-1);
+	LT* a75 = GetArrayClone(ua1000, 1000); QuickSort(a75, 0, 750-1);
+
+	SortResult qsr25 = QuickSort(a25, 0, 1000 - 1);
+	SortResult qsr50 = QuickSort(a50, 0, 1000 - 1);
+	SortResult qsr75 = QuickSort(a75, 0, 1000 - 1);
+
+	DropTable(qsr25, qsr50, qsr75, "Прямое направление");
 }
 
 void Lab4::t2()
@@ -186,6 +199,16 @@ string GTFI(int i)
 		s += "\t";
 	}
 	return s;
+}
+void Lab4::DropTable(SortResult a25, SortResult a50, SortResult a75, string msg)
+{
+	if (msg != "") cout << "\t\t" << msg << endl;
+	cout << "Отсортировано\t\|25%\t\t|50%\t\t|75%\t\t" << endl;
+	cout << "Время (мс)\t|" << a25.ms << GTFI(a25.ms) << "|" << a50.ms << GTFI(a50.ms) << "|" << a75.ms << endl;
+	cout << "Итерации\t|" << a25.iterations << GTFI(a25.iterations) << "|" << a50.iterations << GTFI(a50.iterations) << "|" << a75.iterations << endl;
+	cout << "Сравнения\t|" << a25.comparisons << GTFI(a25.comparisons) << "|" << a50.comparisons << GTFI(a50.comparisons) << "|" << a75.comparisons << endl;
+	cout << "Обмены\t\t|" << a25.exchanges << GTFI(a25.exchanges) << "|" << a50.exchanges << GTFI(a50.exchanges) << "|" << a75.exchanges << endl;
+	cout << "\n";
 }
 void Lab4::DropTable(SortResult a20, SortResult a500, SortResult a1000, SortResult a3000, SortResult a5000, SortResult a10000, string msg)
 {

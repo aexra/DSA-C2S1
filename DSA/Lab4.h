@@ -46,6 +46,7 @@ public:
 	SortResult QuickSort(int* numbers, size_t start, size_t end);
 	void __QuickSort__(int a[], int start, int end, SortResult& result);
 	int __Partition__(int a[], int start, int end, SortResult& result);
+	void DropTable(SortResult a25, SortResult a50, SortResult a75, string msg = "");
 	void DropTable(SortResult a20, SortResult a500, SortResult a1000, SortResult a3000, SortResult a5000, SortResult a10000, string msg = "");
 	
 	LT* GetArrayClone(LT* a, size_t size);
