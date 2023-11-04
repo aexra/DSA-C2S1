@@ -4,12 +4,15 @@ void Lab4::t1()
 {
 	HRND rnd = new Random();
 
+	// Ñîçäàíèå ñëó÷àéíî çàïîëíåííûõ ìàññèâîâ
 	LT* ua20 = rnd->GetRandFilledArrayT<LT>(20);
 	LT* ua500 = rnd->GetRandFilledArrayT<LT>(500);
 	LT* ua1000 = rnd->GetRandFilledArrayT<LT>(1000);
 	LT* ua3000 = rnd->GetRandFilledArrayT<LT>(3000);
 	LT* ua5000 = rnd->GetRandFilledArrayT<LT>(5000);
 	LT* ua10000 = rnd->GetRandFilledArrayT<LT>(10000);
+
+	cout << "ÑÐÀÂÍÅÍÈÅ ÝÔÔÅÊÒÈÂÍÎÑÒÈ ÏÐßÌÛÕ ÌÅÒÎÄÎÂ ÑÎÐÒÈÐÎÂÊÈ" << "\n\n";
 
 	SortResult ssr20 = SelectionSort(GetArrayClone(ua20, 20), 20);
 	SortResult ssr500 = SelectionSort(GetArrayClone(ua500, 500), 500);
@@ -186,13 +189,13 @@ string GTFI(int i)
 }
 void Lab4::DropTable(SortResult a20, SortResult a500, SortResult a1000, SortResult a3000, SortResult a5000, SortResult a10000, string msg)
 {
-	if (msg != "") cout << msg << endl;
+	if (msg != "") cout << "\t\t\t\t\t\t" << msg << endl;
 	cout << "Ðàçìåð\t\t\|20\t\t|500\t\t|1000\t\t|3000\t\t|5000\t\t|10000\t\t" << endl;
 	cout << "Âðåìÿ (ìñ)\t|" << a20.ms << GTFI(a20.ms) << "|" << a500.ms << GTFI(a500.ms) << "|" << a1000.ms << GTFI(a1000.ms) << "|" << a3000.ms << GTFI(a3000.ms) << "|" << a5000.ms << GTFI(a5000.ms) << "|" << a10000.ms << endl;
 	cout << "Èòåðàöèè\t|" << a20.iterations << GTFI(a20.iterations) << "|" << a500.iterations << GTFI(a500.iterations) << "|" << a1000.iterations << GTFI(a1000.iterations) << "|" << a3000.iterations << GTFI(a3000.iterations) << "|" << a5000.iterations << GTFI(a5000.iterations) << "|" << a10000.iterations << endl;
 	cout << "Ñðàâíåíèÿ\t|" << a20.comparisons << GTFI(a20.comparisons) << "|" << a500.comparisons << GTFI(a500.comparisons) << "|" << a1000.comparisons << GTFI(a1000.comparisons) << "|" << a3000.comparisons << GTFI(a3000.comparisons) << "|" << a5000.comparisons << GTFI(a5000.comparisons) << "|" << a10000.comparisons << endl;
 	cout << "Îáìåíû\t\t|" << a20.exchanges << GTFI(a20.exchanges) << "|" << a500.exchanges << GTFI(a500.exchanges) << "|" << a1000.exchanges << GTFI(a1000.exchanges) << "|" << a3000.exchanges << GTFI(a3000.exchanges) << "|" << a5000.exchanges << GTFI(a5000.exchanges) << "|" << a10000.exchanges << endl;
-	cout << "\n\n";
+	cout << "\n";
 }
 Lab4::LT* Lab4::GetArrayClone(LT* a, size_t size)
 {
