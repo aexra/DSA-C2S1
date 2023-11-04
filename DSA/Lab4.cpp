@@ -129,29 +129,32 @@ SortResult Lab4::QuickSort(int* num, size_t start, size_t end)
 {
 	SortResult result;
 	double startms = clock();
-	__QuickSort__(num, start, end);
+	__QuickSort__(num, start, end, result);
 	result.ms = clock() - startms;
 	return result;
 }
-int Lab4::__Partition__(int a[], int start, int end)
+int Lab4::__Partition__(int a[], int start, int end, SortResult& result)
 {
 	int pivot = a[end];
 	int pIndex = start;
 
 	for (int i = start; i < end; i++)
 	{
-		if (a[i] <= pivot)
+		if (a[i] <= pivot && result.comparisons++)
 		{
 			swap(a[i], a[pIndex]);
 			pIndex++;
+			result.exchanges++;
 		}
+		result.iterations++;
 	}
 
 	swap(a[pIndex], a[end]);
+	result.exchanges++;
 
 	return pIndex;
 }
-void Lab4::__QuickSort__(int a[], int start, int end)
+void Lab4::__QuickSort__(int a[], int start, int end, SortResult& result)
 {
 	// базовое условие
 	if (start >= end) {
@@ -159,13 +162,13 @@ void Lab4::__QuickSort__(int a[], int start, int end)
 	}
 
 	// переставить элементы по оси
-	int pivot = __Partition__(a, start, end);
+	int pivot = __Partition__(a, start, end, result);
 
 	// повторяем подмассив, содержащий элементы, меньшие опорной точки
-	__QuickSort__(a, start, pivot - 1);
+	__QuickSort__(a, start, pivot - 1, result);
 
 	// повторяем подмассив, содержащий элементы, превышающие точку опоры
-	__QuickSort__(a, pivot + 1, end);
+	__QuickSort__(a, pivot + 1, end, result);
 }
 size_t CTFI(int i)
 {
