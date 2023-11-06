@@ -59,27 +59,27 @@ void Lab4::t1()
 
 	cout << "\t\tПрямое направление" << "\n\n";
 
-	SortResult ssr25 = QuickSort(a25, 0, 1000 - 1);
-	SortResult ssr50 = QuickSort(a50, 0, 1000 - 1);
-	SortResult ssr75 = QuickSort(a75, 0, 1000 - 1);
+	SortResult ssr25 = SelectionSort(GetArrayClone(a25, 1000), 1000);
+	SortResult ssr50 = SelectionSort(GetArrayClone(a50, 1000), 1000);
+	SortResult ssr75 = SelectionSort(GetArrayClone(a75, 1000), 1000);
 
 	DropTable(ssr25, ssr50, ssr75, "Сортировка сравнениями");
 
-	SortResult isr25 = QuickSort(a25, 0, 1000 - 1);
-	SortResult isr50 = QuickSort(a50, 0, 1000 - 1);
-	SortResult isr75 = QuickSort(a75, 0, 1000 - 1);
+	SortResult isr25 = InclusionSort(GetArrayClone(a25, 1000), 1000);
+	SortResult isr50 = InclusionSort(GetArrayClone(a50, 1000), 1000);
+	SortResult isr75 = InclusionSort(GetArrayClone(a75, 1000), 1000);
 
 	DropTable(isr25, isr50, isr75, "Сортировка вставками");
 
-	SortResult bsr25 = QuickSort(a25, 0, 1000 - 1);
-	SortResult bsr50 = QuickSort(a50, 0, 1000 - 1);
-	SortResult bsr75 = QuickSort(a75, 0, 1000 - 1);
+	SortResult bsr25 = BubbleSort(GetArrayClone(a25, 1000), 1000);
+	SortResult bsr50 = BubbleSort(GetArrayClone(a50, 1000), 1000);
+	SortResult bsr75 = BubbleSort(GetArrayClone(a75, 1000), 1000);
 
 	DropTable(bsr25, bsr50, bsr75, "Сортировка пузырьком");
 
-	SortResult qsr25 = QuickSort(a25, 0, 1000 - 1);
-	SortResult qsr50 = QuickSort(a50, 0, 1000 - 1);
-	SortResult qsr75 = QuickSort(a75, 0, 1000 - 1);
+	SortResult qsr25 = QuickSort(GetArrayClone(a25, 1000), 0, 1000 - 1);
+	SortResult qsr50 = QuickSort(GetArrayClone(a50, 1000), 0, 1000 - 1);
+	SortResult qsr75 = QuickSort(GetArrayClone(a75, 1000), 0, 1000 - 1);
 
 	DropTable(qsr25, qsr50, qsr75, "Быстрая сортировка");
 }
