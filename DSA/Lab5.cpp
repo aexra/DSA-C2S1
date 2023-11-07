@@ -56,8 +56,7 @@ SearchResult Lab5::LinearSearch(int arr[], int requiredKey, int arrSize)
 	result.ms = clock();
 	for (int i = 0; i < arrSize; i++)
 	{
-		result.comparisons++;
-		if (arr[i] == requiredKey)
+		if (result.comparisons++ && arr[i] == requiredKey)
 		{
 			result.ms = result.ms - clock();
 			result.value = i;
