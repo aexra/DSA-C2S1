@@ -86,6 +86,13 @@ void Lab4::t1()
 
 void Lab4::t2()
 {
+	HRND rnd = new Random();
+	
+	LT* a = rnd->GetRandFilledArrayT<LT>(15, 0, 2000);
+	cout << "Исходный массив: "; PrintAry(a, 15); cout << "\n\n";
+
+	InclusionSort(a, 15);
+	cout << "Отсортированный массив: "; PrintAry(a, 15); cout << "\n\n";
 }
 
 void Lab4::PrintAry(LT* _Right, size_t size)
