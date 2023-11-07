@@ -18,7 +18,8 @@ struct SearchResult
 	unsigned int ms = 0;
 	unsigned int comparisons = 0;
 
-	size_t size;
+	unsigned int sorted = -1;
+	unsigned int size;
 	int value;
 };
 
@@ -34,7 +35,8 @@ public:
 	[[noreturn]] void t1() override;
 	[[noreturn]] void t2() override;
 
-	SearchResult LinSearch(int arr[], int requiredKey, int arrSize);
+	SearchResult LinearSearch(int arr[], int requiredKey, int arrSize);
+	SearchResult BinarySearch(int arr[], int left, int right, int key);
 	void DropTable(SearchResult results[], size_t size, string msg = "");
 #pragma endregion
 };
