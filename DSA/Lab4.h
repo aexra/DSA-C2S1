@@ -2,9 +2,6 @@
 
 // BUILT-IN INCLUSIONS
 #include <iostream>
-#include <fstream>
-#include <vector>
-#include <set>
 
 // CUSTOM FILES INCLUSIONS
 #include "Lab.h"
