@@ -113,7 +113,7 @@ SortResult Lab4::InclusionSort(int* num, int size)
 	{
 		int value = num[i];
 		int index = i;
-		while ((index > 0) && (num[index - 1] > value) && result.comparisons++)
+		while (result.comparisons++ && (index > 0) && (num[index - 1] > value))
 		{
 			num[index] = num[index - 1];
 			result.exchanges++;
@@ -135,7 +135,7 @@ SortResult Lab4::SelectionSort(int* num, int size)
 		min = i;
 		for (int j = i + 1; j < size; j++)
 		{
-			if (num[j] < num[min] && result.comparisons++)
+			if (result.comparisons++ && num[j] < num[min])
 				min = j;
 			result.iterations++;
 		}
@@ -155,7 +155,7 @@ SortResult Lab4::BubbleSort(int* num, int size)
 	{
 		for (int j = (size - 1); j > i; j--)
 		{
-			if (num[j - 1] > num[j] && result.comparisons++)
+			if (result.comparisons++ && num[j - 1] > num[j])
 			{
 				int temp = num[j - 1];
 				num[j - 1] = num[j];
@@ -183,7 +183,7 @@ int Lab4::__Partition__(int a[], int start, int end, SortResult& result)
 
 	for (int i = start; i < end; i++)
 	{
-		if (a[i] <= pivot && result.comparisons++)
+		if (result.comparisons++ && a[i] <= pivot)
 		{
 			swap(a[i], a[pIndex]);
 			pIndex++;

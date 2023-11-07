@@ -2,5 +2,5 @@
 void main()
 {
 	LabManager* lm = LabManager::GetInstance();
-	lm->ExecuteLab(5);
+	lm->ExecuteLab(4);
 }
