@@ -13,14 +13,27 @@ void Lab5::t1()
 
 	cout << "Зависимость длительности линейного поиска от размера массива" << endl;
 
-	SearchResult r20 = LinSearch(GetArrayClone(a20, 20), a20[10], 20);
-	SearchResult r500 = LinSearch(GetArrayClone(a500, 500), a500[250], 500);
-	SearchResult r1000 = LinSearch(GetArrayClone(a1000, 1000), a1000[500], 1000);
-	SearchResult r3000 = LinSearch(GetArrayClone(a3000, 3000), a3000[1500], 3000);
-	SearchResult r5000 = LinSearch(GetArrayClone(a5000, 5000), a5000[2500], 5000);
-	SearchResult r10000 = LinSearch(GetArrayClone(a10000, 10000), a10000[5000], 10000);
+	SearchResult r20 = LinSearch(a20, a20[10], 20);
+	SearchResult r500 = LinSearch(a500, a500[250], 500);
+	SearchResult r1000 = LinSearch(a1000, a1000[500], 1000);
+	SearchResult r3000 = LinSearch(a3000, a3000[1500], 3000);
+	SearchResult r5000 = LinSearch(a5000, a5000[2500], 5000);
+	SearchResult r10000 = LinSearch(a10000, a10000[5000], 10000);
 
 	DropTable(new SearchResult[]{r20, r500, r1000, r3000, r5000, r10000}, 6);
+
+	cout << "Зависимость длительности линейного поиска от упорядоченности массива" << endl;
+
+	QuickSort(a10000, 0, 2499);
+	SearchResult r25 = LinSearch(a10000, a10000[8000], 10000);
+
+	QuickSort(a10000, 0, 4999);
+	SearchResult r50 = LinSearch(a10000, a10000[8000], 10000);
+
+	QuickSort(a10000, 0, 7499);
+	SearchResult r75 = LinSearch(a10000, a10000[8000], 10000);
+
+	DropTable(new SearchResult[]{ r25, r50, r75 }, 3);
 }
 
 void Lab5::t2()
