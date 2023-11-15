@@ -2,6 +2,7 @@
 
 // BUILT-IN INCLUSIONS
 #include <iostream>
+#include <chrono>
 
 // CUSTOM FILES INCLUSIONS
 #include "Lab.h"
@@ -37,6 +38,8 @@ public:
 
 	SearchResult LinearSearch(int arr[], int requiredKey, int arrSize);
 	SearchResult BinarySearch(int arr[], int left, int right, int key);
+	SearchResult BarrierSearch(int* arr, int value, size_t size);
+	uint64_t micros();
 	void DropTable(SearchResult results[], size_t size, string msg = "");
 #pragma endregion
 };

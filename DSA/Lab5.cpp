@@ -42,6 +42,24 @@ void Lab5::t1()
 	r75 = BinarySearch(a10000, 0, 10000, a10000[8000]); r75.sorted = 75;
 
 	DropTable(new SearchResult[]{ r25, r50, r75 }, 3);
+
+	cout << "Исследование эффективности введения барьера при линейном поиске" << endl;
+
+	int* _a20 = rnd->GetRandFilledArrayT<int>(20);
+	int* _a500 = rnd->GetRandFilledArrayT<int>(500);
+	int* _a1000 = rnd->GetRandFilledArrayT<int>(1000);
+	int* _a3000 = rnd->GetRandFilledArrayT<int>(3000);
+	int* _a5000 = rnd->GetRandFilledArrayT<int>(5000);
+	int* _a10000 = rnd->GetRandFilledArrayT<int>(10000);
+
+	SearchResult _r20 = BarrierSearch(a20, a20[10], 20);
+	SearchResult _r500 = BarrierSearch(a500, a500[250], 500);
+	SearchResult _r1000 = BarrierSearch(a1000, a1000[500], 1000);
+	SearchResult _r3000 = BarrierSearch(a3000, a3000[1500], 3000);
+	SearchResult _r5000 = BarrierSearch(a5000, a5000[2500], 5000);
+	SearchResult _r10000 = BarrierSearch(a10000, a10000[5000], 10000);
+
+	DropTable(new SearchResult[]{ _r20, _r500, _r1000, _r3000, _r5000, _r10000 }, 6);
 }
 
 void Lab5::t2()
@@ -95,6 +113,35 @@ SearchResult Lab5::BinarySearch(int arr[], int left, int right, int key)
 			return result;
 		}
 	}
+}
+SearchResult Lab5::BarrierSearch(int* arr, int value, size_t size) {
+	SearchResult result;
+	result.ms = clock();
+	result.size = size;
+	if (result.comparisons++ && size != 0) {
+		int last = arr[size - 1];
+		arr[size - 1] = value;
+		
+		size_t i = 0;
+		for (i = 0; arr[i] != value; ++i) {
+		}
+		arr[size - 1] = last;
+		if (i != (size - 1) || value == last) {
+			result.ms = clock() - result.ms;
+			result.value = i;
+			return result;
+		}
+	}
+	result.ms = clock() - result.ms;
+	result.value = -1;
+	return result;
+}
+uint64_t Lab5::micros()
+{
+	uint64_t us = std::chrono::duration_cast<std::chrono::microseconds>(
+		std::chrono::high_resolution_clock::now().time_since_epoch())
+		.count();
+	return us;
 }
 
 void Lab5::DropTable(SearchResult results[], size_t size, string msg)
