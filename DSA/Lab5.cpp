@@ -33,7 +33,19 @@ void Lab5::t1()
 	QuickSort(a10000, 0, 7499);
 	SearchResult r75 = LinearSearch(a10000, a10000[8000], 10000);
 
-	DropTable(new SearchResult[]{ r25, r50, r75 }, 3);
+	QuickSort(a10000, 0, 9999);
+	SearchResult r100 = LinearSearch(a10000, a10000[9999], 10000);
+
+	DropTable(new SearchResult[]{ r25, r50, r75, r100 }, 4);
+
+	cout << "Зависимость длительности ЛИНЕЙНОГО поиска от упорядоченности массива в обратном порядке" << endl;
+
+	SearchResult rr25 = LinearSearch(Reverse(a10000, 10000), a10000[8000], 10000);
+	SearchResult rr50 = LinearSearch(Reverse(a10000, 10000), a10000[8000], 10000);
+	SearchResult rr75 = LinearSearch(Reverse(a10000, 10000), a10000[8000], 10000);
+	SearchResult rr100 = LinearSearch(Reverse(a10000, 10000), a10000[9999], 10000);
+
+	DropTable(new SearchResult[]{ rr25, rr50, rr75, rr100 }, 4);
 
 	cout << "Зависимость длительности БИНАРНОГО поиска от упорядоченности массива" << endl;
 
