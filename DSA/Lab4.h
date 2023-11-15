@@ -2,6 +2,7 @@
 
 // BUILT-IN INCLUSIONS
 #include <iostream>
+#include <algorithm>
 
 // CUSTOM FILES INCLUSIONS
 #include "Lab.h"
@@ -35,6 +36,7 @@ public:
 	[[noreturn]] void t2() override;
 
 	void PrintAry(LT* _Right, size_t size);
+	LT* Reverse(LT* _Right, size_t size);
 
 	// соритровки
 	SortResult InclusionSort(int* num, int size);
