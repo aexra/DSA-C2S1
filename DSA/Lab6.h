@@ -26,6 +26,15 @@ public:
 };
 
 
+// IEnumerable interface
+__interface IEnumerable
+{
+	virtual void cout() = 0;
+	virtual size_t count() = 0;
+	virtual string toString() = 0;
+};
+
+
 // QUEUE CLASS
 template <class T>
 class Queue
@@ -35,7 +44,7 @@ class Queue
 
 // LIST CLASS
 template <class T>
-class List
+class List : public IEnumerable
 {
 private:
 	struct Node
@@ -50,9 +59,12 @@ private:
 public:
 	List();
 	
+	void cout() override;
+	size_t count() override;
+	string toString() override;
+
 	void push(T value);
 	void remove(size_t i);
-	size_t count();
 	size_t find(T value);
 
 	T operator [] (size_t i);

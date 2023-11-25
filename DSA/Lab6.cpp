@@ -2,7 +2,11 @@
 
 void Lab6::t1()
 {
-	
+	List<int> lst;
+	lst.push(5);
+	lst.push(1);
+	lst.push(18);
+	lst.cout();
 }
 
 void Lab6::t2()
@@ -11,6 +15,29 @@ void Lab6::t2()
 
 template <class T>
 List<T>::List() {}
+
+template<class T>
+void List<T>::cout()
+{
+	std::cout << this->toString() << endl;
+}
+
+template<class T>
+string List<T>::toString()
+{
+	string str = "[ ";
+	
+	Node* tmp = this->head;
+	while (tmp)
+	{
+		str += to_string(tmp->value) + ", ";
+		tmp = tmp->next;
+	}
+
+	str += "]";
+
+	return str;
+}
 
 template<class T>
 void List<T>::push(T value)
