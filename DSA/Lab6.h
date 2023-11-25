@@ -5,6 +5,7 @@
 
 // CUSTOM FILES INCLUSIONS
 #include "Lab.h"
+#include "debug.h"
 
 // USES
 using namespace std;
@@ -41,6 +42,8 @@ private:
 	{
 		Node* next = nullptr;
 		T value = T{};
+
+		Node(T value) { this->value = value; }
 	};
 
 	Node* head = nullptr;

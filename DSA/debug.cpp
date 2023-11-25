@@ -2,15 +2,15 @@
 
 void log(std::string msg, bool endline, std::string prefix)
 {
-	std::cout << "[" << prefix << "\t]" << " " << msg << (endline? "\n" : "");
+	std::cout << "[" << prefix << "]" << " " << msg << (endline? "\n" : "");
 }
 
 void warning(std::string msg)
 {
-	std::cout << "[warning]" << " " << msg << std::endl;
+	std::cout << "[WARNING]" << " " << msg << std::endl;
 }
 
 void error(std::string msg)
 {
-	std::cout << "[error]" << " " << msg << std::endl;
+	std::cout << "[ERROR\t]" << " " << msg << std::endl;
 }
