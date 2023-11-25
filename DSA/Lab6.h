@@ -5,7 +5,6 @@
 
 // CUSTOM FILES INCLUSIONS
 #include "Lab.h"
-#include "debug.h"
 
 // USES
 using namespace std;
@@ -25,3 +24,32 @@ public:
 #pragma endregion
 };
 
+
+// QUEUE CLASS
+template <class T>
+class Queue
+{
+
+};
+
+// LIST CLASS
+template <class T>
+class List
+{
+private:
+	struct Node
+	{
+		Node* next = nullptr;
+		T value = T{};
+	};
+
+	Node* head = nullptr;
+public:
+	List();
+	
+	void push(T value);
+	void remove(size_t i);
+	size_t count();
+
+	T operator [] (size_t i);
+};
