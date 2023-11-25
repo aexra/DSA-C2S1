@@ -53,6 +53,7 @@ public:
 	void push(T value);
 	void remove(size_t i);
 	size_t count();
+	size_t find(T value);
 
 	T operator [] (size_t i);
 };

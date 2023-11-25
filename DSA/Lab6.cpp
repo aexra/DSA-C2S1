@@ -2,12 +2,7 @@
 
 void Lab6::t1()
 {
-	List<int> lst = List<int>();
-	lst.push(5);
-	lst.push(3);
-	lst.push(4);
-	cout << lst.count();
-	cout << endl << lst[5];
+	
 }
 
 void Lab6::t2()
@@ -38,7 +33,26 @@ void List<T>::push(T value)
 template<class T>
 void List<T>::remove(size_t i)
 {
+	size_t j = 0;
+	Node* prev = nullptr;
+	Node* tmp = this->head;
 
+	while (j != i)
+	{
+		if (!tmp)
+		{
+			error("Элемент с таким индексом не найден!\n\n");
+			exit(-1);
+			//throw out_of_range("kekw");
+			//return 0;
+		}
+		prev = tmp;
+		tmp = tmp->next;
+		j++;
+	}
+
+	if (prev) prev->next = tmp->next;
+	delete tmp;
 }
 
 template<class T>
@@ -52,6 +66,26 @@ size_t List<T>::count()
 		tmp = tmp->next;
 	}
 	return k;
+}
+
+template<class T>
+size_t List<T>::find(T value)
+{
+	size_t i = 0;
+	Node* tmp = this->head;
+
+	while (tmp)
+	{
+		if (tmp->value == value)
+		{
+			return i;
+		}
+		i++;
+		tmp = tmp->next;
+	}
+
+	error("Элемент с таким значением не найден!\n\n");
+	exit(-1);
 }
 
 template<class T>
