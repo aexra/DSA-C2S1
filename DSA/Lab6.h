@@ -67,5 +67,10 @@ public:
 	void remove(size_t i);
 	size_t find(T value);
 
+	T max();
+	T min();
+	T sum();
+	T mean();
+
 	T operator [] (size_t i);
 };

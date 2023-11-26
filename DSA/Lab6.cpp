@@ -2,11 +2,7 @@
 
 void Lab6::t1()
 {
-	List<int> lst;
-	lst.push(5);
-	lst.push(1);
-	lst.push(18);
-	lst.cout();
+	
 }
 
 void Lab6::t2()
@@ -113,6 +109,60 @@ size_t List<T>::find(T value)
 
 	error("Элемент с таким значением не найден!\n\n");
 	exit(-1);
+}
+
+template<class T>
+T List<T>::max()
+{
+	Node* tmp = this->head;
+	T maxval = tmp->value;
+	while (tmp)
+	{
+		if (tmp->value > maxval) maxval = tmp->value;
+		tmp = tmp->next;
+	}
+	return maxval;
+}
+
+template<class T>
+T List<T>::min()
+{
+	Node* tmp = this->head;
+	T minval = tmp->value;
+	while (tmp)
+	{
+		if (tmp->value < minval) minval = tmp->value;
+		tmp = tmp->next;
+	}
+	return minval;
+}
+
+template<class T>
+T List<T>::sum()
+{
+	Node* tmp = this->head;
+	T sum = 0;
+	while (tmp)
+	{
+		sum += tmp->value;
+		tmp = tmp->next;
+	}
+	return sum;
+}
+
+template<class T>
+T List<T>::mean()
+{
+	Node* tmp = this->head;
+	T sum = 0;
+	size_t count = 0;
+	while (tmp)
+	{
+		sum += tmp->value;
+		count++;
+		tmp = tmp->next;
+	}
+	return sum / count;
 }
 
 template<class T>
