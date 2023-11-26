@@ -148,6 +148,7 @@
     <ClCompile Include="UltraCoolNamespace.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AexraCore.h" />
     <ClInclude Include="debug.h" />
     <ClInclude Include="IFigure.h" />
     <ClInclude Include="Lab.h" />

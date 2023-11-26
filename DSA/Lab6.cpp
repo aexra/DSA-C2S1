@@ -18,7 +18,6 @@ void Lab6::t1()
 
 void Lab6::t2()
 {
-	List<int> lst = getRandList(5);
 	
 }
 
@@ -94,7 +93,34 @@ void List<T>::remove(size_t i)
 template<class T>
 void List<T>::swap(size_t x, size_t y)
 {
+	size_t size = this->count();
+	if (x >= size || y >= size)
+	{
+		error("Raised IndexOutOfRangeException");
+		exit(-1);
+	}
 
+	if (x > y)
+	{
+		size_t tmpi = y;
+		y = x;
+		x = tmpi;
+	}
+
+	Node* prev1 = x > 0 ? __GetNode__(x - 1) : nullptr;
+	Node* node1 = __GetNode__(x);
+	Node* next1 = x + 1 != y ? __GetNode__(x + 1) : __GetNode__(x);
+	Node* prev2 = y - 1 != x ? __GetNode__(y - 1) : nullptr;
+	Node* node2 = __GetNode__(y);
+	Node* next2 = y < size - 1 ? __GetNode__(y + 1) : nullptr;
+
+	// общий случай
+	if (prev1) prev1->next = node2;
+	node1->next = next2;
+	if (prev2) prev2->next = node1;
+	node2->next = next1;
+
+	if (x == 0) this->head = node2;
 }
 
 template<class T>

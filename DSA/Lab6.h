@@ -3,6 +3,9 @@
 // BUILT-IN INCLUSIONS
 #include <iostream>
 
+// CORE INCLUSION
+#include "AexraCore.h"
+
 // CUSTOM INCLUSIONS
 #include "Lab.h"
 #include "debug.h"
@@ -41,6 +44,27 @@ private:
 	};
 
 	Node* head = nullptr;
+
+	Node* __GetNode__(size_t i)
+	{
+		size_t j = 0;
+		Node* tmp = this->head;
+
+		while (j != i)
+		{
+			if (!tmp)
+			{
+				error("Элемент с таким индексом не найден!\n\n");
+				exit(-1);
+				//throw out_of_range("kekw");
+				//return 0;
+			}
+			tmp = tmp->next;
+			j++;
+		}
+
+		return tmp;
+	}
 public:
 	List();
 
