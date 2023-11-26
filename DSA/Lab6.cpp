@@ -1,5 +1,16 @@
 #include "Lab6.h"
 
+List<int> Lab6::getRandList(size_t size, int begin, int end)
+{
+	List<int> lst;
+	HRND rnd = new Random();
+	for (int i = 0; i < size; i++)
+	{
+		lst.push(rnd->randi(begin, end));
+	}
+	return lst;
+}
+
 void Lab6::t1()
 {
 	
@@ -7,6 +18,8 @@ void Lab6::t1()
 
 void Lab6::t2()
 {
+	List<int> lst = getRandList(5);
+	
 }
 
 template <class T>
@@ -76,6 +89,30 @@ void List<T>::remove(size_t i)
 
 	if (prev) prev->next = tmp->next;
 	delete tmp;
+}
+
+template<class T>
+void List<T>::swap(size_t x, size_t y)
+{
+
+}
+
+template<class T>
+void List<T>::reverse()
+{
+	Node* prev = nullptr;
+	Node* tmp = this->head;
+	Node* realnext = nullptr;
+	if (!tmp) return;
+	
+	while (tmp)
+	{
+		this->head = tmp;
+		realnext = tmp->next;
+		tmp->next = prev;
+		prev = tmp;
+		tmp = realnext;
+	}
 }
 
 template<class T>

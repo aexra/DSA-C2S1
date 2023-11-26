@@ -3,27 +3,13 @@
 // BUILT-IN INCLUSIONS
 #include <iostream>
 
-// CUSTOM FILES INCLUSIONS
+// CUSTOM INCLUSIONS
 #include "Lab.h"
 #include "debug.h"
+#include "random.h"
 
 // USES
 using namespace std;
-
-
-/*			LAB CLASS				*/
-class Lab6 : public Lab
-{
-#pragma region Private
-private:
-
-#pragma endregion
-#pragma region Public
-public:
-	[[noreturn]] void t1() override;
-	[[noreturn]] void t2() override;
-#pragma endregion
-};
 
 
 // IEnumerable interface
@@ -33,7 +19,6 @@ __interface IEnumerable
 	virtual size_t count() = 0;
 	virtual string toString() = 0;
 };
-
 
 // QUEUE CLASS
 template <class T>
@@ -58,13 +43,15 @@ private:
 	Node* head = nullptr;
 public:
 	List();
-	
+
 	void cout() override;
 	size_t count() override;
 	string toString() override;
 
 	void push(T value);
 	void remove(size_t i);
+	void swap(size_t x, size_t y);
+	void reverse();
 	size_t find(T value);
 
 	T max();
@@ -73,4 +60,18 @@ public:
 	T mean();
 
 	T operator [] (size_t i);
+};
+
+/*			LAB CLASS				*/
+class Lab6 : public Lab
+{
+#pragma region Private
+private:
+	List<int> getRandList(size_t size = 10, int begin = -10, int end = 10);
+#pragma endregion
+#pragma region Public
+public:
+	[[noreturn]] void t1() override;
+	[[noreturn]] void t2() override;
+#pragma endregion
 };
