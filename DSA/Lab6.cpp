@@ -25,8 +25,12 @@ void Lab6::t1()
 {
 	Queue<int> q1 = getRandQueue(3, 1, 10);
 	Queue<int> q2 = getRandQueue(3, 1, 10);
-	q1.cout();
-	q2.cout();
+	cout << "Queue 1: " << q1;
+	cout << "Queue 2: " << q2;
+	cout << "\nПрименяем перемещение элементов..." << endl;
+	q2 += q1;
+	cout << "Queue 2: " << q2;
+	cout << "\nАдреса новых начала и конца:" << endl << "Начало: " << q2.__GetHeadPtr__() << endl << "Конец: " << q2.__GetTailPtr__();
 }
 
 void Lab6::t2()
@@ -39,9 +43,9 @@ template <class T>
 Queue<T>::Queue() {}
 
 template<class T>
-void Queue<T>::cout()
+void Queue<T>::cout(ostream& os)
 {
-	std::cout << this->toString() << endl;
+	os << this->toString() << endl;
 }
 
 template<class T>
@@ -105,30 +109,23 @@ T Queue<T>::pop()
 }
 
 template<class T>
-T* Queue<T>::__GetHeadPtr__()
-{
-	return nullptr;
-}
-
-template<class T>
-T* Queue<T>::__GetTailPtr__()
-{
-	return nullptr;
-}
-
-template<class T>
 void Queue<T>::operator+=(const Queue<T>& _Right)
 {
-
+	Node* tmp = _Right.head;
+	while (tmp)
+	{
+		this->push(tmp->value);
+		tmp = tmp->next;
+	}
 }
 
 template <class T>
 List<T>::List() {}
 
 template<class T>
-void List<T>::cout()
+void List<T>::cout(ostream& os)
 {
-	std::cout << this->toString() << endl;
+	os << this->toString() << endl;
 }
 
 template<class T>
@@ -352,4 +349,3 @@ T List<T>::operator[](size_t i)
 
 	return tmp->value;
 }
-

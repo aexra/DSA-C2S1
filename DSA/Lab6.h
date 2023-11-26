@@ -18,7 +18,7 @@ using namespace std;
 // IEnumerable interface
 __interface IEnumerable
 {
-	virtual void cout() = 0;
+	virtual void cout(ostream& os = std::cout) = 0;
 	virtual size_t count() = 0;
 	virtual string toString() = 0;
 };
@@ -62,17 +62,29 @@ private:
 public:
 	Queue();
 
-	void cout() override;
+	void cout(ostream& os = std::cout) override;
 	size_t count() override;
 	string toString() override;
 
 	void push(T value);
 	T pop();
 
-	T* __GetHeadPtr__();
-	T* __GetTailPtr__();
+	Node* __GetHeadPtr__()
+	{
+		return this->head;
+	}
+	Node* __GetTailPtr__()
+	{
+		return this->tail;
+	}
 
 	void operator += (const Queue<T>& _Right);
+
+	friend ostream& operator << (ostream& os, Queue<T>& _Queue)
+	{
+		_Queue.cout(os);
+		return os;
+	}
 };
 
 // LIST CLASS
@@ -113,7 +125,7 @@ private:
 public:
 	List();
 
-	void cout() override;
+	void cout(ostream& os = std::cout) override;
 	size_t count() override;
 	string toString() override;
 
@@ -145,3 +157,9 @@ public:
 	[[noreturn]] void t2() override;
 #pragma endregion
 };
+
+template<class U>
+inline ostream& operator<<(ostream& os, Queue<U>& _Queue)
+{
+	// TODO: вставьте здесь оператор return
+}
