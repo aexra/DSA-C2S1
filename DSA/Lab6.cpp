@@ -18,7 +18,10 @@ void Lab6::t1()
 
 void Lab6::t2()
 {
-	
+	List<int> lst = getRandList(4, 1, 8);
+	lst.cout();
+	lst.swap(0, lst.find(lst.min()));
+	lst.cout();
 }
 
 template <class T>
@@ -93,6 +96,8 @@ void List<T>::remove(size_t i)
 template<class T>
 void List<T>::swap(size_t x, size_t y)
 {
+	if (x == y) return;
+
 	size_t size = this->count();
 	if (x >= size || y >= size)
 	{
