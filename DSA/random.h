@@ -3,11 +3,15 @@
 #include <time.h>
 #include <random>
 #include <iostream>
+#include <chrono>
 
 class Random
 {
-public:
+private:
+	static Random* p_instance;
 	Random();
+public:
+	static Random* GetInstance();
 
 	double randf();
 	double randf(double begin, double end);

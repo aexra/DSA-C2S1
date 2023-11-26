@@ -3,7 +3,17 @@
 List<int> Lab6::getRandList(size_t size, int begin, int end)
 {
 	List<int> lst;
-	HRND rnd = new Random();
+	HRND rnd = Random::GetInstance();
+	for (int i = 0; i < size; i++)
+	{
+		lst.push(rnd->randi(begin, end));
+	}
+	return lst;
+}
+Queue<int> Lab6::getRandQueue(size_t size, int begin, int end)
+{
+	Queue<int> lst;
+	HRND rnd = Random::GetInstance();
 	for (int i = 0; i < size; i++)
 	{
 		lst.push(rnd->randi(begin, end));
@@ -13,13 +23,103 @@ List<int> Lab6::getRandList(size_t size, int begin, int end)
 
 void Lab6::t1()
 {
-	
+	Queue<int> q1 = getRandQueue(3, 1, 10);
+	Queue<int> q2 = getRandQueue(3, 1, 10);
+	q1.cout();
+	q2.cout();
 }
 
 void Lab6::t2()
 {
 	List<int> lst = getRandList(4, 1, 8); lst.cout();
 	lst.swap(0, lst.find(lst.min())); lst.cout();
+}
+
+template <class T>
+Queue<T>::Queue() {}
+
+template<class T>
+void Queue<T>::cout()
+{
+	std::cout << this->toString() << endl;
+}
+
+template<class T>
+size_t Queue<T>::count()
+{
+	size_t k = 0;
+	Node* tmp = this->head;
+	while (tmp)
+	{
+		k++;
+		tmp = tmp->next;
+	}
+	return k;
+}
+
+template<class T>
+string Queue<T>::toString()
+{
+	string str = "[ ";
+
+	Node* tmp = this->head;
+	while (tmp)
+	{
+		str += to_string(tmp->value) + ", ";
+		tmp = tmp->next;
+	}
+
+	str += "]";
+
+	return str;
+}
+
+template<class T>
+void Queue<T>::push(T value)
+{
+	if (!this->head)
+	{
+		this->head = new Node(value);
+		this->tail = this->head;
+		return;
+	}
+
+	this->tail->next = new Node(value);
+	this->tail = this->tail->next;
+}
+
+template<class T>
+T Queue<T>::pop()
+{
+	if (!this->head)
+	{
+		error("Î÷åðåäüÏóñòàException");
+		exit(-1);
+	}
+	if (this->head == this->tail) this->tail = nullptr;
+	T data = this->head->value;
+	Node* oldhead = this->head;
+	this->head = this->head->next;
+	delete oldhead;
+	return data;
+}
+
+template<class T>
+T* Queue<T>::__GetHeadPtr__()
+{
+	return nullptr;
+}
+
+template<class T>
+T* Queue<T>::__GetTailPtr__()
+{
+	return nullptr;
+}
+
+template<class T>
+void Queue<T>::operator+=(const Queue<T>& _Right)
+{
+
 }
 
 template <class T>
@@ -252,3 +352,4 @@ T List<T>::operator[](size_t i)
 
 	return tmp->value;
 }
+

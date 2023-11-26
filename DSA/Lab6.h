@@ -25,9 +25,54 @@ __interface IEnumerable
 
 // QUEUE CLASS
 template <class T>
-class Queue
+class Queue : public IEnumerable
 {
+private:
+	struct Node
+	{
+		Node* next = nullptr;
+		T value = T{};
 
+		Node(T value) { this->value = value; }
+	};
+
+	Node* head = nullptr;
+	Node* tail = nullptr;
+
+	Node* __GetNode__(size_t i)
+	{
+		size_t j = 0;
+		Node* tmp = this->head;
+
+		while (j != i)
+		{
+			if (!tmp)
+			{
+				error("Элемент с таким индексом не найден!\n\n");
+				exit(-1);
+				//throw out_of_range("kekw");
+				//return 0;
+			}
+			tmp = tmp->next;
+			j++;
+		}
+
+		return tmp;
+	}
+public:
+	Queue();
+
+	void cout() override;
+	size_t count() override;
+	string toString() override;
+
+	void push(T value);
+	T pop();
+
+	T* __GetHeadPtr__();
+	T* __GetTailPtr__();
+
+	void operator += (const Queue<T>& _Right);
 };
 
 // LIST CLASS
@@ -92,6 +137,7 @@ class Lab6 : public Lab
 #pragma region Private
 private:
 	List<int> getRandList(size_t size = 10, int begin = -10, int end = 10);
+	Queue<int> getRandQueue(size_t size = 10, int begin = -10, int end = 10);
 #pragma endregion
 #pragma region Public
 public:

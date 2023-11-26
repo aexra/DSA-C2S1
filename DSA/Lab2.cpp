@@ -64,7 +64,7 @@ void Lab2::t1()
 
 	cout << "Этап 1)";
 	ofstream odopfile("./resources/Lab2/output1.txt", ios_base::app);
-	HRND rnd = new Random();
+	HRND rnd = Random::GetInstance();
 	for (unsigned int i = 0; i < DIGITS_RANDOMLY_CREATED; i++) {
 		odopfile << rnd->randf(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE) << endl;
 	}
@@ -99,7 +99,7 @@ void Lab2::t2()
 	ofstream ofile("./resources/Lab2/digits.txt", ios_base::trunc);
 	log("Создан и открыт для записи файл <digits.txt>");
 	
-	HRND hrnd = new Random();
+	HRND hrnd = Random::GetInstance();
 	long double sum = 0;
 	for (unsigned int i = 0; i < DIGITS_RANDOMLY_CREATED; i++) {
 		double digit = hrnd->randf(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE);

@@ -2,7 +2,7 @@
 
 void Lab4::t1()
 {
-	HRND rnd = new Random();
+	HRND rnd = Random::GetInstance();
 
 	// Создание случайно заполненных массивов
 	LT* ua20 = rnd->GetRandFilledArrayT<LT>(20);
@@ -116,7 +116,7 @@ void Lab4::t1()
 
 void Lab4::t2()
 {
-	HRND rnd = new Random();
+	HRND rnd = Random::GetInstance();
 	
 	LT* a = rnd->GetRandFilledArrayT<LT>(15, 0, 2000);
 	cout << "Исходный массив: "; PrintAry(a, 15); cout << "\n\n";

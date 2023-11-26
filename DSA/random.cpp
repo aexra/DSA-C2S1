@@ -1,8 +1,15 @@
 #include "random.h"
 
+Random* Random::p_instance = nullptr;
+
 Random::Random()
 {
 	srand(time(0));
+}
+
+Random* Random::GetInstance()
+{
+	return Random::p_instance ? Random::p_instance : Random::p_instance = new Random();
 }
 
 double Random::randf()

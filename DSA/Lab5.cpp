@@ -2,7 +2,7 @@
 
 void Lab5::t1()
 {
-	HRND rnd = new Random();
+	HRND rnd = Random::GetInstance();
 
 	int* a20 = rnd->GetRandFilledArrayT<int>(20);
 	int* a500 = rnd->GetRandFilledArrayT<int>(500);
