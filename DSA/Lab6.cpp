@@ -18,10 +18,8 @@ void Lab6::t1()
 
 void Lab6::t2()
 {
-	List<int> lst = getRandList(4, 1, 8);
-	lst.cout();
-	lst.swap(0, lst.find(lst.min()));
-	lst.cout();
+	List<int> lst = getRandList(4, 1, 8); lst.cout();
+	lst.swap(0, lst.find(lst.min())); lst.cout();
 }
 
 template <class T>
