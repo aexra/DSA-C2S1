@@ -18,6 +18,8 @@ protected:
 		Node* next = nullptr;
 		Node* prev = nullptr;
 		T value;
+
+		Node(T value) : value(value) {}
 	};
 	Node* head = nullptr;
 	Node* next = nullptr;
