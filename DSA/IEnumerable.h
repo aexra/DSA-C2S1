@@ -11,6 +11,7 @@ public:
 
 	template<typename U>
 	friend std::ostream& operator << (std::ostream& os, IEnumerable<U>& _Right);
+	T operator [] (size_t i);
 
 	IEnumerable() {};
 protected:
@@ -56,6 +57,21 @@ inline std::string IEnumerable<T>::toString()
 	}
 	str += "]";
 	return str;
+}
+
+template<typename T>
+inline T IEnumerable<T>::operator[](size_t i)
+{
+	Node* tmp = this->head;
+	size_t k = 0;
+	while (tmp) {
+		if (k == i) {
+			return tmp->value;
+		}
+		k++;
+		tmp = tmp->next;
+	}
+	throw std::exception("Out of range!");
 }
 
 template<typename U>
