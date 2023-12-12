@@ -17,6 +17,7 @@ inline void List<T>::push(T value)
 {
 	if (!this->head) {
 		this->head = new IEnumerable<T>::Node(value);
+		this->length++;
 		return;
 	}
 
@@ -27,9 +28,30 @@ inline void List<T>::push(T value)
 
 	tmp->next = new IEnumerable<T>::Node(value);
 	tmp->next->prev = tmp;
+
+	this->length++;
 }
 
 template<typename T>
 inline void List<T>::remove(size_t i)
 {
+	if (i == 0) {
+		auto next = this->head->next;
+		delete this->head;
+		this->head = next;
+		this->head->prev = nullptr;
+		this->head->next->prev = this->head;
+		this->length--;
+		return;
+	}
+
+	auto e1 = this->getNode(i - 1);
+	auto e2 = this->getNode(i);
+	auto e3 = i + 1 < this->length ? this->getNode(i + 1) : nullptr;
+
+	delete e2;
+	e1->next = e3;
+	if (e3) e3->prev = e1;
+
+	this->length--;
 }

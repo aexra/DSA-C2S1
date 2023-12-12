@@ -22,8 +22,13 @@ protected:
 
 		Node(T value) : value(value) {}
 	};
+
 	Node* head = nullptr;
 	Node* next = nullptr;
+	size_t length = 0;
+
+	T get(size_t i);
+	Node* getNode(size_t i);
 };
 
 template<typename T>
@@ -35,13 +40,7 @@ inline void IEnumerable<T>::cout(std::ostream& os)
 template<typename T>
 inline size_t IEnumerable<T>::count()
 {
-	Node* tmp = this->head;
-	size_t k = 0;
-	while (tmp) {
-		k++;
-		tmp = tmp->next;
-	}
-	return k;
+	return this->length;
 }
 
 template<typename T>
@@ -62,11 +61,32 @@ inline std::string IEnumerable<T>::toString()
 template<typename T>
 inline T IEnumerable<T>::operator[](size_t i)
 {
+	return this->get(i);
+}
+
+template<typename T>
+inline T IEnumerable<T>::get(size_t i)
+{
 	Node* tmp = this->head;
 	size_t k = 0;
 	while (tmp) {
 		if (k == i) {
 			return tmp->value;
+		}
+		k++;
+		tmp = tmp->next;
+	}
+	throw std::exception("Out of range!");
+}
+
+template<typename T>
+inline IEnumerable<T>::Node* IEnumerable<T>::getNode(size_t i)
+{
+	Node* tmp = this->head;
+	size_t k = 0;
+	while (tmp) {
+		if (k == i) {
+			return tmp;
 		}
 		k++;
 		tmp = tmp->next;
