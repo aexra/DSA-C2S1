@@ -6,6 +6,7 @@ template<typename T>
 class IEnumerable {
 public:
 	virtual void cout(std::ostream& os = std::cout);
+	virtual void swap(size_t x, size_t y);
 	virtual size_t count();
 	virtual size_t find(T value);
 	virtual std::string toString();
@@ -40,6 +41,41 @@ template<typename T>
 inline void IEnumerable<T>::cout(std::ostream& os)
 {
 	os << this->toString();
+}
+
+template<typename T>
+inline void IEnumerable<T>::swap(size_t x, size_t y)
+{
+	if (x == y) return;
+
+	if (x >= this->count() || y >= this->count()) {
+		throw std::exception("Out of range!");
+	}
+
+	if (x > y) {
+		size_t tmp = y;
+		y = x;
+		x = tmp;
+	}
+
+	auto p1 = x > 0 ? getNode(x - 1) : nullptr;
+	auto e1 = getNode(x);
+	auto n1 = x + 1 != y ? getNode(x + 1) : getNode(x);
+	auto p2 = y - 1 != x ? getNode(y - 1) : nullptr;
+	auto e2 = getNode(y);
+	auto n2 = y < count() - 1 ? getNode(y + 1) : nullptr;
+
+	if (p1) p1->next = e2;
+	e1->next = n2;
+	if (p2) p2->next = e1;
+	e2->next = n1;
+
+	e1->prev = p2;
+	n1->prev = e2;
+	e2->prev = p1;
+	if (n2) n2->prev = e1;
+
+	if (x == 0) this->head = e2;
 }
 
 template<typename T>

@@ -24,6 +24,6 @@ void Lab6::t1()
 
 void Lab6::t2()
 {
-	List<int> list = getRandFilledList<int>(10);
+	List<int> list = getRandFilledList<int>(4);
 	list.cout();
 }
