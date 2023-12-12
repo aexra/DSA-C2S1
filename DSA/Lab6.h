@@ -10,6 +10,7 @@
 #include "Lab.h"
 #include "debug.h"
 #include "random.h"
+#include "IEnumerable.h"
 
 // USES
 using namespace std;

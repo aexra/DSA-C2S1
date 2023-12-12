@@ -131,6 +131,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="debug.cpp" />
+    <ClCompile Include="IEnumerable.cpp" />
     <ClCompile Include="IFigure.cpp" />
     <ClCompile Include="Lab.cpp" />
     <ClCompile Include="Lab1.cpp" />
@@ -140,6 +141,7 @@
     <ClCompile Include="Lab5.cpp" />
     <ClCompile Include="Lab6.cpp" />
     <ClCompile Include="LabManager.cpp" />
+    <ClCompile Include="List.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="random.cpp" />
     <ClCompile Include="STDOutputManager.cpp" />
@@ -150,6 +152,7 @@
   <ItemGroup>
     <ClInclude Include="AexraCore.h" />
     <ClInclude Include="debug.h" />
+    <ClInclude Include="IEnumerable.h" />
     <ClInclude Include="IFigure.h" />
     <ClInclude Include="Lab.h" />
     <ClInclude Include="Lab1.h" />
@@ -159,6 +162,7 @@
     <ClInclude Include="Lab5.h" />
     <ClInclude Include="Lab6.h" />
     <ClInclude Include="LabManager.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="random.h" />
     <ClInclude Include="resource.h" />
