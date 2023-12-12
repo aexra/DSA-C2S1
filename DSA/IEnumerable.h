@@ -9,6 +9,10 @@ public:
 	virtual size_t count();
 	virtual size_t find(T value);
 	virtual std::string toString();
+	virtual T min();
+	virtual T max();
+	virtual T sum();
+	virtual double mean();
 
 	template<typename U>
 	friend std::ostream& operator << (std::ostream& os, IEnumerable<U>& _Right);
@@ -57,6 +61,48 @@ inline std::string IEnumerable<T>::toString()
 	}
 	str += "]";
 	return str;
+}
+
+template<typename T>
+inline T IEnumerable<T>::min()
+{
+	Node* tmp = this->head;
+	T min = this->get(0);
+	while (tmp) {
+		if (tmp->value < min) min = tmp->value;
+		tmp = tmp->next;
+	}
+	return min;
+}
+
+template<typename T>
+inline T IEnumerable<T>::max()
+{
+	Node* tmp = this->head;
+	T max = this->get(0);
+	while (tmp) {
+		if (tmp->value > max) max = tmp->value;
+		tmp = tmp->next;
+	}
+	return max;
+}
+
+template<typename T>
+inline T IEnumerable<T>::sum()
+{
+	Node* tmp = this->head;
+	T sum = 0;
+	while (tmp) {
+		sum += tmp->value;
+		tmp = tmp->next;
+	}
+	return sum;
+}
+
+template<typename T>
+inline double IEnumerable<T>::mean()
+{
+	return this->sum() / (double)this->length;
 }
 
 template<typename T>
