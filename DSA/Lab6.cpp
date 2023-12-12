@@ -19,7 +19,7 @@ List<T> Lab6::getRandFilledList(size_t count, T min, T max)
 
 void Lab6::t1()
 {
-	
+
 }
 
 void Lab6::t2()

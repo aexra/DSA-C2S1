@@ -143,6 +143,7 @@
     <ClCompile Include="LabManager.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Queue.cpp" />
     <ClCompile Include="random.cpp" />
     <ClCompile Include="STDOutputManager.cpp" />
     <ClCompile Include="StringExtensions.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="LabManager.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="Queue.h" />
     <ClInclude Include="random.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SetExtensions.h" />
