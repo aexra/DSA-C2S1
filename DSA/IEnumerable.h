@@ -7,6 +7,7 @@ class IEnumerable {
 public:
 	virtual void cout(std::ostream& os = std::cout);
 	virtual size_t count();
+	virtual size_t find(T value);
 	virtual std::string toString();
 
 	template<typename U>
@@ -56,6 +57,19 @@ inline std::string IEnumerable<T>::toString()
 	}
 	str += "]";
 	return str;
+}
+
+template<typename T>
+inline size_t IEnumerable<T>::find(T value)
+{
+	Node* tmp = this->head;
+	size_t k = 0;
+	while (tmp) {
+		if (tmp->value == value) return k;
+		tmp = tmp->next;
+		k++;
+	}
+	return -1;
 }
 
 template<typename T>

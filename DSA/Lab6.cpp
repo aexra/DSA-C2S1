@@ -9,9 +9,7 @@ void Lab6::t1()
 	list.push(3);
 	list.push(6);
 	list.push(28);
-	list.remove(0);
-	list.cout();
-	cout << "\n" << list.count();
+	cout << "\n" << list.find(28);
 }
 
 void Lab6::t2()
