@@ -19,6 +19,14 @@ inline void List<T>::push(T value)
 		this->head = new IEnumerable<T>::Node(value);
 		return;
 	}
+
+	auto tmp = this->head;
+	while (tmp->next) {
+		tmp = tmp->next;
+	}
+
+	tmp->next = new IEnumerable<T>::Node(value);
+	tmp->next->prev = tmp;
 }
 
 template<typename T>
