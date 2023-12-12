@@ -24,6 +24,8 @@ void Lab6::t1()
 
 void Lab6::t2()
 {
-	List<int> list = getRandFilledList<int>(4);
+	List<int> list = getRandFilledList<int>(5, -100, 100);
+	list.cout();
+	list.swap(0, list.find(list.min()));
 	list.cout();
 }

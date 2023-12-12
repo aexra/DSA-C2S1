@@ -5,7 +5,7 @@
 template<typename T>
 class IEnumerable {
 public:
-	virtual void cout(std::ostream& os = std::cout);
+	virtual void cout(std::string end = "\n", std::ostream & os = std::cout);
 	virtual void swap(size_t x, size_t y);
 	virtual size_t count();
 	virtual size_t find(T value);
@@ -38,9 +38,9 @@ protected:
 };
 
 template<typename T>
-inline void IEnumerable<T>::cout(std::ostream& os)
+inline void IEnumerable<T>::cout(std::string end, std::ostream & os)
 {
-	os << this->toString();
+	os << this->toString() << end;
 }
 
 template<typename T>
