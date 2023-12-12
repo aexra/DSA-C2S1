@@ -20,7 +20,8 @@ class Lab6 : public Lab
 {
 #pragma region Private
 private:
-
+	template<typename T>
+	List<T> getRandFilledList(size_t count, T min = -10, T max = 10);
 #pragma endregion
 #pragma region Public
 public:
