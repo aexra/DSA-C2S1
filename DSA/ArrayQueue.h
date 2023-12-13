@@ -15,6 +15,7 @@ public:
 	void cout(std::string end = "\n", std::ostream& os = std::cout);
 
 	ArrayQueue<T> operator += (ArrayQueue<T> _Right);
+	T operator [] (size_t i);
 };
 
 template<typename T>
@@ -68,4 +69,10 @@ inline ArrayQueue<T> ArrayQueue<T>::operator+=(ArrayQueue<T> _Right)
 		this->add(_Right[i]);
 	}
 	return *this;
+}
+
+template<typename T>
+inline T ArrayQueue<T>::operator[](size_t i)
+{
+	return _Ary[i];
 }

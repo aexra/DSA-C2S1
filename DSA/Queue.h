@@ -12,6 +12,8 @@ public:
 	template<typename U>
 	friend Queue<U> operator + (Queue<U>& _Left, Queue<U>& _Right);
 	Queue<T> operator += (Queue<T> _Right);
+
+	void coutLinks();
 };
 
 template<typename T>
@@ -48,7 +50,7 @@ inline T Queue<T>::pop()
 		return value;
 	}
 	catch (std::exception ex) {
-		return nullptr;
+		return 0;
 	}
 }
 
@@ -59,6 +61,13 @@ inline Queue<T> Queue<T>::operator+=(Queue<T> _Right)
 		this->add(_Right[i]);
 	}
 	return *this;
+}
+
+template<typename T>
+inline void Queue<T>::coutLinks()
+{
+	std::cout << "Начало: " << this->head << std::endl;
+	std::cout << "Конец: " << this->getNode(this->count()-1) << std::endl;
 }
 
 template<typename U>

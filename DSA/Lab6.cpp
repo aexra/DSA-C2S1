@@ -38,17 +38,23 @@ Queue<T> Lab6::getRandFilledQueue(size_t count, T min, T max)
 
 void Lab6::fake1()
 {
-	Queue<int> q1 = getRandFilledQueue<int>(5);
+	/*Queue<int> q1 = getRandFilledQueue<int>(5);
 	Queue<int> q2 = getRandFilledQueue<int>(5);
-	(q2 += q1).cout();
+	(q2 += q1).cout();*/
+
+	std::cout << std::endl;
 
 	if (type1 == 1) {
-		std::cout << "Новая очередь (2+1): "; 
-		(linkedqueue2 += linkedqueue1).cout();
-	}
-	else {
 		std::cout << "Новая очередь (2+1): ";
 		(arrayqueue2 += arrayqueue1).cout();
+	}
+	else {
+		std::cout << "Старая очередь: \n";
+		linkedqueue2.cout();
+		linkedqueue2.coutLinks();
+		std::cout << "Новая очередь (2+1): \n";
+		(linkedqueue2 += linkedqueue1).cout();
+		linkedqueue2.coutLinks();
 	}
 }
 
@@ -221,7 +227,7 @@ void Lab6::t1()
 		}
 		case 3:
 		{
-			unsigned short key = ask1or2("Какую задачу? [1/2]: ");
+			unsigned short key = ask1or2("\nКакую задачу? [1/2]: ");
 			if (key == 1) {
 				fake1();
 			}
