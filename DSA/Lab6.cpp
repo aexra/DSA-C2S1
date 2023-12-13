@@ -76,6 +76,17 @@ unsigned short Lab6::ask1or2(std::string question, std::string error)
 	return key;
 }
 
+unsigned short Lab6::ask123(std::string question, std::string error)
+{
+	unsigned short key = 0;
+	while (true) {
+		key = input<unsigned int>(question);
+		if (key == 1 || key == 2 || key == 3) break;
+		else std::cout << error << std::endl;
+	}
+	return key;
+}
+
 // the InTeRfAcE
 void Lab6::t1()
 {
@@ -94,12 +105,12 @@ void Lab6::t1()
 	}
 	// end configuring
 
-	std::cout << "Вас приветствует Мастер диалога шестой лабы." << std::endl;
+	std::cout << "Вас приветствует Мастер диалога шестой лабы.\n\n";
 	while (true) {
 		unsigned short key = 0;
 		while (!(1 <= key && key <= 4)) {
 			key = input<unsigned int>(
-				"\t\tМЕНЮ\n1. Сменить тип данных\n2. К значениям\n3. Выполнить задачу\n4. Выйти\nВыберите [1-4]: "
+				"\tМЕНЮ\n1. Сменить тип данных\n2. К значениям\n3. Выполнить задачу\n4. Выйти\nВыберите [1-4]: "
 			);
 		}
 		switch (key) {
@@ -116,12 +127,7 @@ void Lab6::t1()
 		{
 			bool toExit = false;
 			while (!toExit) {
-				unsigned short akey = 0;
-				while (!(1 <= akey && akey <= 3)) {
-					akey = input<unsigned int>(
-						"\n1. Просмотреть значения\n2. Изменить значения\n3. Назад\nВыберите [1-3]: "
-					);
-				}
+				unsigned short akey = ask123("\n1. Просмотреть значения\n2. Изменить значения\n3. Назад\nВыберите [1-3]: ");
 				switch (akey) {
 				case 1:
 				{
@@ -133,46 +139,66 @@ void Lab6::t1()
 				}
 				case 2:
 				{
-					if (ask1or2("\nЧто изменяем?\n1. Очередь\n2. Список\nВыберите [1/2]: ") == 1) {
+					short whatDataType = ask123("\nЧто изменяем?\n1. Очередь\n2. Список\n3. Назад\nВыберите [1/2]: ");
+					if (whatDataType == 1) {
 						// очереди
-						if (ask1or2("\nКакую очередь?\n1. Первую\n2. Вторую\nВыберите [1/2]: ") == 1) {
+						short whatQueue = ask123("\nКакую очередь?\n1. Первую\n2. Вторую\n3. Назад\nВыберите [1/2]: ");
+						if (whatQueue == 1) {
 							// первая очередь
-							if (ask1or2("\nЧто делаем?\n1. Добавить\n2. Удалить\nВыберите [1/2]: ") == 1) {
+							short whatAction = ask123("\nЧто делаем?\n1. Добавить\n2. Удалить\n3. Назад\nВыберите [1/2]: ");
+							if (whatAction == 1) {
 								// добавить
 								size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
 								int value = input<unsigned int>("Введите значение: ");
 							}
-							else {
+							else if (whatAction == 2) {
 								// удалить
 								size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
+							}
+							else {
+								break;
+							}
+						}
+						else if (whatQueue == 2) {
+							// вторая очередь
+							short whatAction = ask123("\nЧто делаем?\n1. Добавить\n2. Удалить\n3. Назад\nВыберите [1/2]: ");
+							if (whatAction == 1) {
+								// добавить
+								size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
+								int value = input<unsigned int>("Введите значение: ");
+							}
+							else if (whatAction == 2) {
+								// удалить
+								size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
+							}
+							else {
+								break;
 							}
 						}
 						else {
-							// вторая очередь
-							if (ask1or2("\nЧто делаем?\n1. Добавить\n2. Удалить\nВыберите [1/2]: ") == 1) {
-								// добавить
-								size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
-								int value = input<unsigned int>("Введите значение: ");
-							}
-							else {
-								// удалить
-								size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
-							}
+							break;
 						}
 					}
-					else {
+					else if (whatDataType == 2) {
 						// список
-						if (ask1or2("\nЧто делаем?\n1. Добавить\n2. Удалить\nВыберите [1/2]: ") == 1) {
+						short whatAction = ask123("\nЧто делаем?\n1. Добавить\n2. Удалить\n3. Назад\nВыберите [1/2]: ");
+						if (whatAction == 1) {
 							// добавить
 							size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
 							int value = input<unsigned int>("Введите значение: ");
 							linkedlist.insert(index, value);
 						}
-						else {
+						else if (whatAction == 2) {
 							// удалить
 							size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
 							linkedlist.remove(index);
 						}
+						else {
+							break;
+						}
+					}
+					else {
+						break;
 					}
 					break;
 				}

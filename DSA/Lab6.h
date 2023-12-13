@@ -36,6 +36,7 @@ private:
 	ArrayList<int> arraylist;
 
 	unsigned short ask1or2(std::string question = "Чё? [1/2]: ", std::string error = "Лее по цифрам попадать научись...");
+	unsigned short ask123(std::string question = "Чё? [1/2]: ", std::string error = "Лее по цифрам попадать научись...");
 
 	template<typename T>
 	List<T> getRandFilledList(size_t count, T min = -10, T max = 10);
