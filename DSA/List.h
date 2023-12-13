@@ -60,7 +60,7 @@ inline void List<T>::remove(size_t i)
 template<typename T>
 inline void List<T>::insert(size_t i, T value)
 {
-	if (i < 0 || i > length) {
+	if (i < 0 || i > this->length) {
 		throw std::exception("Out of range!");
 	}
 

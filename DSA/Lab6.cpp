@@ -102,13 +102,16 @@ void Lab6::t1()
 		}
 		switch (key) {
 		case 1:
+		{
 			unsigned short tkey = ask1or2("Формат какого типа данных вы хотите изменить?\n1. Очередей\n2. Списков");
 			unsigned short type = ask1or2("Выберите тип\n1. Массив\n2. Связная структура");
 			if (tkey == 1) type1 = type;
 			else type2 = type;
-			std::cout << "Формат " << (tkey == 1? "очередей" : "списков") << " изменен на " << (type == 1 ? "массив" : "связную структуру");
+			std::cout << "Формат " << (tkey == 1 ? "очередей" : "списков") << " изменен на " << (type == 1 ? "массив" : "связную структуру");
 			break;
+		}
 		case 2:
+		{
 			bool toExit = false;
 			while (!toExit) {
 				unsigned short akey = 0;
@@ -119,11 +122,14 @@ void Lab6::t1()
 				}
 				switch (akey) {
 				case 1:
+				{
 					std::cout << "Очередь1: " << linkedqueue1;
 					std::cout << "Очередь2: " << linkedqueue2;
 					std::cout << "Список: " << linkedlist;
 					break;
+				}
 				case 2:
+				{
 					if (ask1or2("Что изменяем?\n1. Очередь\n2. Список\nВыберите [1/2]: ") == 1) {
 						// очереди
 						if (ask1or2("Какую очередь?\n1. Первую\n2. Вторую\nВыберите [1/2]: ") == 1) {
@@ -144,6 +150,7 @@ void Lab6::t1()
 								// добавить
 								size_t index = input<unsigned int>("Введите индекс: ");
 								int value = input<unsigned int>("Введите значение: ");
+								linkedlist.insert(index, value);
 							}
 							else {
 								// удалить
@@ -164,13 +171,18 @@ void Lab6::t1()
 						}
 					}
 					break;
+				}
 				case 3:
+				{
 					toExit = true;
 					break;
 				}
+				}
 			}
 			break;
+		}
 		case 3:
+		{
 			unsigned short key = ask1or2("Какую задачу? [1/2]: ");
 			if (key == 1) {
 				fake1();
@@ -179,6 +191,7 @@ void Lab6::t1()
 				fake2();
 			}
 			break;
+		}
 		case 4:
 			return;
 		}

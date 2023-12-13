@@ -193,6 +193,6 @@ inline IEnumerable<T>::Node* IEnumerable<T>::getNode(size_t i)
 template<typename U>
 inline std::ostream& operator<<(std::ostream& os, IEnumerable<U>& _Right)
 {
-	_Right.cout(os);
+	_Right.cout("\n", os);
 	return os;
 }
