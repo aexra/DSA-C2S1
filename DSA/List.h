@@ -10,6 +10,7 @@ private:
 public:
 	void push(T value);
 	void remove(size_t i);
+	void insert(size_t i, T value);
 };
 
 template<typename T>
@@ -54,4 +55,37 @@ inline void List<T>::remove(size_t i)
 	if (e3) e3->prev = e1;
 
 	this->length--;
+}
+
+template<typename T>
+inline void List<T>::insert(size_t i, T value)
+{
+	if (i < 0 || i > length) {
+		throw std::exception("Out of range!");
+	}
+
+	if (i == 0) {
+		auto tmp = this->head;
+		this->head = new IEnumerable<T>::Node(value);
+		this->head->next = tmp;
+		if (tmp) tmp->prev = this->head;
+		this->length++;
+		return;
+	}
+
+	auto tmp = this->head;
+	size_t k = 0;
+	while (k != i) {
+		tmp = tmp->next;
+		k++;
+	}
+
+	auto prev = tmp->prev;
+	auto obj = new IEnumerable<T>::Node(value);
+	obj->next = tmp;
+	obj->prev = prev;
+	prev->next = obj;
+	tmp->prev = obj;
+
+	this->length++;
 }
