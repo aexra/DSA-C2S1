@@ -102,14 +102,34 @@ void Lab6::t1()
 		}
 		switch (key) {
 		case 1:
-			unsigned short key = ask1or2("Формат какого типа данных вы хотите изменить?\n1. Очередей\n2. Списков");
+			unsigned short tkey = ask1or2("Формат какого типа данных вы хотите изменить?\n1. Очередей\n2. Списков");
 			unsigned short type = ask1or2("Выберите тип\n1. Массив\n2. Связная структура");
-			if (key == 1) type1 = type;
+			if (tkey == 1) type1 = type;
 			else type2 = type;
-			std::cout << "Формат " << (key == 1? "очередей" : "списков") << " изменен на " << (type == 1 ? "массив" : "связную структуру");
+			std::cout << "Формат " << (tkey == 1? "очередей" : "списков") << " изменен на " << (type == 1 ? "массив" : "связную структуру");
 			break;
 		case 2:
+			bool toExit = false;
+			while (!toExit) {
+				unsigned short akey = 0;
+				while (!(1 <= key && key <= 3)) {
+					akey = input<unsigned int>(
+						"1. Просмотреть значения\n2. Изменить значения\n3. Назад\nВыберите [1-3]: "
+					);
+				}
+				switch (akey) {
+				case 1:
+					std::cout << "Очередь: " << linkedqueue1;
+					std::cout << "Список: " << linkedlist;
+					break;
+				case 2:
 
+					break;
+				case 3:
+					toExit = true;
+					break;
+				}
+			}
 			break;
 		case 3:
 			unsigned short key = ask1or2("Какую задачу? [1/2]: ");
