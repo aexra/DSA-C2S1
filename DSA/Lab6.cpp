@@ -45,8 +45,12 @@ void Lab6::fake1()
 	std::cout << std::endl;
 
 	if (type1 == 1) {
-		std::cout << "Новая очередь (2+1): ";
+		std::cout << "Старая очередь: \n";
+		arrayqueue2.cout();
+		arrayqueue2.coutLinks();
+		std::cout << "Новая очередь (2+1): \n";
 		(arrayqueue2 += arrayqueue1).cout();
+		arrayqueue2.coutLinks();
 	}
 	else {
 		std::cout << "Старая очередь: \n";
@@ -125,10 +129,10 @@ void Lab6::t1()
 		case 1:
 		{
 			unsigned short tkey = ask1or2("\nФормат какого типа данных вы хотите изменить?\n1. Очередей\n2. Списков\nВыберите [1/2]: ");
-			unsigned short type = ask1or2("Выберите тип\n1. Массив\n2. Связная структура\nВыберите [1/2]: ");
+			unsigned short type = ask1or2("\nВыберите тип\n1. Массив\n2. Связная структура\nВыберите [1/2]: ");
 			if (tkey == 1) type1 = type;
 			else type2 = type;
-			std::cout << "Формат " << (tkey == 1 ? "очередей" : "списков") << " изменен на " << (type == 1 ? "массив" : "связную структуру");
+			std::cout << "\nФормат " << (tkey == 1 ? "очередей" : "списков") << " изменен на " << (type == 1 ? "массив" : "связную структуру") << "\n\n";
 			break;
 		}
 		case 2:

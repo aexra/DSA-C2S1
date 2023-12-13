@@ -16,6 +16,8 @@ public:
 
 	ArrayQueue<T> operator += (ArrayQueue<T> _Right);
 	T operator [] (size_t i);
+
+	void coutLinks();
 };
 
 template<typename T>
@@ -75,4 +77,11 @@ template<typename T>
 inline T ArrayQueue<T>::operator[](size_t i)
 {
 	return _Ary[i];
+}
+
+template<typename T>
+inline void ArrayQueue<T>::coutLinks()
+{
+	std::cout << "Начало: " << _Ary << std::endl;
+	std::cout << "Конец: " << _Ary + count()-1 << std::endl;
 }
