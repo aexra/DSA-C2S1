@@ -13,6 +13,8 @@ public:
 	T pop();
 	size_t count();
 	void cout(std::string end = "\n", std::ostream& os = std::cout);
+
+	ArrayQueue<T> operator += (ArrayQueue<T> _Right);
 };
 
 template<typename T>
@@ -57,4 +59,13 @@ inline void ArrayQueue<T>::cout(std::string end, std::ostream& os)
 		os << _Ary[i] << (i == length - 1 ? "" : ", ");
 	}
 	os << "]" << end;
+}
+
+template<typename T>
+inline ArrayQueue<T> ArrayQueue<T>::operator+=(ArrayQueue<T> _Right)
+{
+	for (size_t i = 0; i < _Right.count(); i++) {
+		this->add(_Right[i]);
+	}
+	return *this;
 }

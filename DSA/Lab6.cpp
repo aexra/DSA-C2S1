@@ -47,7 +47,8 @@ void Lab6::fake1()
 		(linkedqueue2 += linkedqueue1).cout();
 	}
 	else {
-
+		std::cout << "Новая очередь (2+1): ";
+		(arrayqueue2 += arrayqueue1).cout();
 	}
 }
 
