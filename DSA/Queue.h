@@ -11,6 +11,7 @@ public:
 
 	template<typename U>
 	friend Queue<U> operator + (Queue<U>& _Left, Queue<U>& _Right);
+	Queue<T> operator += (Queue<T> _Right);
 };
 
 template<typename T>
@@ -49,6 +50,15 @@ inline T Queue<T>::pop()
 	catch (std::exception ex) {
 		return nullptr;
 	}
+}
+
+template<typename T>
+inline Queue<T> Queue<T>::operator+=(Queue<T> _Right)
+{
+	for (size_t i = 0; i < _Right.count(); i++) {
+		this->add(_Right[i]);
+	}
+	return *this;
 }
 
 template<typename U>

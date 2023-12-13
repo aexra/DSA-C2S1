@@ -39,7 +39,8 @@ void Lab6::t1()
 {
 	Queue<int> q1 = getRandFilledQueue<int>(5);
 	Queue<int> q2 = getRandFilledQueue<int>(5);
-	(q1 + q2).cout();
+	q2 += q1;
+	q2.cout();
 }
 
 void Lab6::t2()
