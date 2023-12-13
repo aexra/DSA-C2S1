@@ -33,13 +33,18 @@ inline void Queue<T>::add(T value)
 template<typename T>
 inline T Queue<T>::pop()
 {
-	T value = this->head->value;
-	auto next = this->head->next;
-	delete this->head;
-	this->head = next;
-	this->head->prev = nullptr;
-	this->head->next->prev = this->head;
-	this->length--;
-	return value;
+	try {
+		T value = this->head->value;
+		auto next = this->head->next;
+		delete this->head;
+		this->head = next;
+		this->head->prev = nullptr;
+		this->head->next->prev = this->head;
+		this->length--;
+		return value;
+	}
+	catch () {
+		return nullptr;
+	}
 }
 
