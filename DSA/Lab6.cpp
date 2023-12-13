@@ -37,6 +37,12 @@ Queue<T> Lab6::getRandFilledQueue(size_t count, T min, T max)
 
 void Lab6::t1()
 {
+	ArrayList<int> lst;
+	lst.push(5);
+	lst.push(10);
+	lst.remove(0);
+	lst.cout();
+
 	Queue<int> q1 = getRandFilledQueue<int>(5);
 	Queue<int> q2 = getRandFilledQueue<int>(5);
 	(q2 += q1).cout();

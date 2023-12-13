@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArrayList.cpp" />
     <ClCompile Include="debug.cpp" />
     <ClCompile Include="IEnumerable.cpp" />
     <ClCompile Include="IFigure.cpp" />
@@ -152,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AexraCore.h" />
+    <ClInclude Include="ArrayList.h" />
     <ClInclude Include="debug.h" />
     <ClInclude Include="IEnumerable.h" />
     <ClInclude Include="IFigure.h" />

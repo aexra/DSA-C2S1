@@ -11,6 +11,7 @@
 #include "debug.h"
 #include "random.h"
 #include "List.h"
+#include "ArrayList.h"
 #include "Queue.h"
 
 /*			LAB CLASS				*/
