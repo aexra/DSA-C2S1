@@ -25,12 +25,13 @@ public:
 		{
 			std::string title;
 			OptionProc& proc;
+
+			Option(std::string title, OptionProc& proc) : title(title), proc(proc) {}
 		};
-		List<Option> optList;
+		List<Option*> optList;
 	public:
 		Page(std::string title) : title(title) {}
 		void init();
-		void addOption(std::string title, Page* page);
 		void addOption(std::string title, OptionProc& optProc);
 	};
 
