@@ -4,7 +4,7 @@
 #include <iostream>
 
 // CORE INCLUSION
-//#include "AexraCore.h"
+#include "AexraCore.h"
 
 // CUSTOM INCLUSIONS
 #include "Lab.h"

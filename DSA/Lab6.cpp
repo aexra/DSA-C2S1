@@ -1,6 +1,4 @@
 #include "Lab6.h"
-#include <windows.h>
-#include <winuser.h>
 
 template<typename T>
 List<T> Lab6::getRandFilledList(size_t count, T min, T max)
@@ -40,15 +38,15 @@ Queue<T> Lab6::getRandFilledQueue(size_t count, T min, T max)
 void Lab6::t1()
 {
 	
-	/*Queue<int> q1 = getRandFilledQueue<int>(5);
+	Queue<int> q1 = getRandFilledQueue<int>(5);
 	Queue<int> q2 = getRandFilledQueue<int>(5);
-	(q2 += q1).cout();*/
+	(q2 += q1).cout();
 }
 
 void Lab6::t2()
 {
 	List<int> list = getRandFilledList<int>(5, -100, 100);
 	list.cout();
-	list.swap(0, list.find(list.getmin()));
+	list.swap(0, list.find(list.min()));
 	list.cout();
 }
