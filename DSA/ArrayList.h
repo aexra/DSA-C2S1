@@ -10,6 +10,7 @@ private:
 	T* _Ary = new T[length];
 public:
 	T push(T value);
+	T insert(size_t i, T value);
 	T remove(size_t i);
 	size_t count();
 	void cout(std::string end="\n", std::ostream & os = std::cout);
@@ -23,6 +24,26 @@ inline T ArrayList<T>::push(T value)
 		newAry[i] = _Ary[i];
 	}
 	newAry[length] = value;
+	delete _Ary;
+	_Ary = newAry;
+	length++;
+	return value;
+}
+
+template<typename T>
+inline T ArrayList<T>::insert(size_t i, T value)
+{
+	T* newAry = new T[length + 1];
+	size_t k = 0;
+	for (size_t j = 0; j < length + 1; j++) {
+		if (i == j) {
+			newAry[j] = value;
+		}
+		else {
+			newAry[j] = _Ary[k];
+			k++;
+		}
+	}
 	delete _Ary;
 	_Ary = newAry;
 	length++;

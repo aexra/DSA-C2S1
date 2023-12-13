@@ -191,6 +191,7 @@ void Lab6::t1()
 							size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
 							int value = input<int>("Введите значение: ");
 							linkedlist.insert(index, value);
+							arraylist.insert(index, value);
 						}
 						else if (whatAction == 2) {
 							// удалить
