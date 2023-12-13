@@ -132,7 +132,6 @@
   <ItemGroup>
     <ClCompile Include="ArrayList.cpp" />
     <ClCompile Include="ArrayQueue.cpp" />
-    <ClCompile Include="ConsoleDialogManager.cpp" />
     <ClCompile Include="debug.cpp" />
     <ClCompile Include="IEnumerable.cpp" />
     <ClCompile Include="IFigure.cpp" />
@@ -157,7 +156,6 @@
     <ClInclude Include="AexraCore.h" />
     <ClInclude Include="ArrayList.h" />
     <ClInclude Include="ArrayQueue.h" />
-    <ClInclude Include="ConsoleDialogManager.h" />
     <ClInclude Include="debug.h" />
     <ClInclude Include="IEnumerable.h" />
     <ClInclude Include="IFigure.h" />

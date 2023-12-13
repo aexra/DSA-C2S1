@@ -14,6 +14,7 @@
 #include "ArrayList.h"
 #include "Queue.h"
 #include "ArrayQueue.h"
+#include "ConsoleDialogManager.h"
 
 /*			LAB CLASS				*/
 class Lab6 : public Lab
