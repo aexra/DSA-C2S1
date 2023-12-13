@@ -148,12 +148,14 @@ void Lab6::t1()
 							short whatAction = ask123("\nЧто делаем?\n1. Добавить\n2. Удалить\n3. Назад\nВыберите [1/2]: ");
 							if (whatAction == 1) {
 								// добавить
-								size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
-								int value = input<unsigned int>("Введите значение: ");
+								int value = input<int>("Введите значение: ");
+								linkedqueue1.add(value);
+								arrayqueue1.add(value);
 							}
 							else if (whatAction == 2) {
 								// удалить
-								size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
+								linkedqueue1.pop();
+								arrayqueue1.pop();
 							}
 							else {
 								break;
@@ -164,12 +166,14 @@ void Lab6::t1()
 							short whatAction = ask123("\nЧто делаем?\n1. Добавить\n2. Удалить\n3. Назад\nВыберите [1/2]: ");
 							if (whatAction == 1) {
 								// добавить
-								size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
-								int value = input<unsigned int>("Введите значение: ");
+								int value = input<int>("Введите значение: ");
+								linkedqueue2.add(value);
+								arrayqueue2.add(value);
 							}
 							else if (whatAction == 2) {
 								// удалить
-								size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
+								linkedqueue1.pop();
+								arrayqueue1.pop();
 							}
 							else {
 								break;
@@ -185,13 +189,14 @@ void Lab6::t1()
 						if (whatAction == 1) {
 							// добавить
 							size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
-							int value = input<unsigned int>("Введите значение: ");
+							int value = input<int>("Введите значение: ");
 							linkedlist.insert(index, value);
 						}
 						else if (whatAction == 2) {
 							// удалить
 							size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
 							linkedlist.remove(index);
+							arraylist.remove(index);
 						}
 						else {
 							break;
