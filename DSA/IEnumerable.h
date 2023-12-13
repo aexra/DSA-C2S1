@@ -10,8 +10,8 @@ public:
 	virtual size_t count();
 	virtual size_t find(T value);
 	virtual std::string toString();
-	virtual T min();
-	virtual T max();
+	virtual T getmin();
+	virtual T getmax();
 	virtual T sum();
 	virtual double mean();
 
@@ -100,7 +100,7 @@ inline std::string IEnumerable<T>::toString()
 }
 
 template<typename T>
-inline T IEnumerable<T>::min()
+inline T IEnumerable<T>::getmin()
 {
 	Node* tmp = this->head;
 	T min = this->get(0);
@@ -112,7 +112,7 @@ inline T IEnumerable<T>::min()
 }
 
 template<typename T>
-inline T IEnumerable<T>::max()
+inline T IEnumerable<T>::getmax()
 {
 	Node* tmp = this->head;
 	T max = this->get(0);

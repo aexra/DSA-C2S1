@@ -4,7 +4,7 @@
 #include <iostream>
 
 // CORE INCLUSION
-#include "AexraCore.h"
+//#include "AexraCore.h"
 
 // CUSTOM INCLUSIONS
 #include "Lab.h"
@@ -12,9 +12,6 @@
 #include "random.h"
 #include "List.h"
 #include "Queue.h"
-
-// USES
-using namespace std;
 
 /*			LAB CLASS				*/
 class Lab6 : public Lab
