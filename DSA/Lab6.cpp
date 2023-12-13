@@ -81,11 +81,13 @@ void Lab6::t1()
 {
 	// configure default values
 	linkedlist = getRandFilledList<int>(10);
+	linkedqueue1 = getRandFilledQueue<int>(10);
 	linkedqueue2 = getRandFilledQueue<int>(10);
 	for (size_t i = 0; i < linkedlist.count(); i++) {
 		arraylist.push(linkedlist[i]);
-		linkedqueue1.add(linkedlist[i]);
-		arrayqueue1.add(linkedlist[i]);
+	}
+	for (size_t i = 0; i < linkedqueue1.count(); i++) {
+		arrayqueue1.add(linkedqueue2[i]);
 	}
 	for (size_t i = 0; i < linkedqueue2.count(); i++) {
 		arrayqueue2.add(linkedqueue2[i]);
@@ -103,8 +105,8 @@ void Lab6::t1()
 		switch (key) {
 		case 1:
 		{
-			unsigned short tkey = ask1or2("Формат какого типа данных вы хотите изменить?\n1. Очередей\n2. Списков");
-			unsigned short type = ask1or2("Выберите тип\n1. Массив\n2. Связная структура");
+			unsigned short tkey = ask1or2("\nФормат какого типа данных вы хотите изменить?\n1. Очередей\n2. Списков\nВыберите [1/2]: ");
+			unsigned short type = ask1or2("Выберите тип\n1. Массив\n2. Связная структура\nВыберите [1/2]: ");
 			if (tkey == 1) type1 = type;
 			else type2 = type;
 			std::cout << "Формат " << (tkey == 1 ? "очередей" : "списков") << " изменен на " << (type == 1 ? "массив" : "связную структуру");
@@ -117,24 +119,25 @@ void Lab6::t1()
 				unsigned short akey = 0;
 				while (!(1 <= akey && akey <= 3)) {
 					akey = input<unsigned int>(
-						"1. Просмотреть значения\n2. Изменить значения\n3. Назад\nВыберите [1-3]: "
+						"\n1. Просмотреть значения\n2. Изменить значения\n3. Назад\nВыберите [1-3]: "
 					);
 				}
 				switch (akey) {
 				case 1:
 				{
-					std::cout << "Очередь1: " << linkedqueue1;
-					std::cout << "Очередь2: " << linkedqueue2;
-					std::cout << "Список: " << linkedlist;
+					std::cout << std::endl;
+					std::cout << "Очередь1:\t" << linkedqueue1;
+					std::cout << "Очередь2:\t" << linkedqueue2;
+					std::cout << "Список:\t\t" << linkedlist;
 					break;
 				}
 				case 2:
 				{
-					if (ask1or2("Что изменяем?\n1. Очередь\n2. Список\nВыберите [1/2]: ") == 1) {
+					if (ask1or2("\nЧто изменяем?\n1. Очередь\n2. Список\nВыберите [1/2]: ") == 1) {
 						// очереди
-						if (ask1or2("Какую очередь?\n1. Первую\n2. Вторую\nВыберите [1/2]: ") == 1) {
+						if (ask1or2("\nКакую очередь?\n1. Первую\n2. Вторую\nВыберите [1/2]: ") == 1) {
 							// первая очередь
-							if (ask1or2("Что делаем?\n1. Добавить\n2. Удалить\nВыберите [1/2]: ") == 1) {
+							if (ask1or2("\nЧто делаем?\n1. Добавить\n2. Удалить\nВыберите [1/2]: ") == 1) {
 								// добавить
 								size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
 								int value = input<unsigned int>("Введите значение: ");
@@ -146,7 +149,7 @@ void Lab6::t1()
 						}
 						else {
 							// вторая очередь
-							if (ask1or2("Что делаем?\n1. Добавить\n2. Удалить\nВыберите [1/2]: ") == 1) {
+							if (ask1or2("\nЧто делаем?\n1. Добавить\n2. Удалить\nВыберите [1/2]: ") == 1) {
 								// добавить
 								size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
 								int value = input<unsigned int>("Введите значение: ");
@@ -159,7 +162,7 @@ void Lab6::t1()
 					}
 					else {
 						// список
-						if (ask1or2("Что делаем?\n1. Добавить\n2. Удалить\nВыберите [1/2]: ") == 1) {
+						if (ask1or2("\nЧто делаем?\n1. Добавить\n2. Удалить\nВыберите [1/2]: ") == 1) {
 							// добавить
 							size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
 							int value = input<unsigned int>("Введите значение: ");
