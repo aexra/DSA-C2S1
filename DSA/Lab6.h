@@ -13,6 +13,7 @@
 #include "List.h"
 #include "ArrayList.h"
 #include "Queue.h"
+#include "ArrayQueue.h"
 
 /*			LAB CLASS				*/
 class Lab6 : public Lab
