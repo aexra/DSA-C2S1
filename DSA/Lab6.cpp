@@ -69,11 +69,17 @@ void Lab6::fake2()
 	list.swap(0, list.find(list.min()));
 	list.cout();*/
 
+	std::cout << std::endl;
+
 	if (type2 == 1) {
-		
+		std::cout << "Список до изменения: "; arraylist.cout();
+		arraylist.swap(0, arraylist.find(arraylist.min()));
+		std::cout << "Список после изменения: "; arraylist.cout();
 	}
 	else {
-
+		std::cout << "Список до изменения: "; linkedlist.cout();
+		linkedlist.swap(0, linkedlist.find(linkedlist.min()));
+		std::cout << "Список после изменения: "; linkedlist.cout();
 	}
 }
 
@@ -122,7 +128,7 @@ void Lab6::t1()
 		unsigned short key = 0;
 		while (!(1 <= key && key <= 4)) {
 			key = input<unsigned int>(
-				"\tМЕНЮ\n1. Сменить тип данных\n2. К значениям\n3. Выполнить задачу\n4. Выйти\nВыберите [1-4]: "
+				"\n\tМЕНЮ\n1. Сменить тип данных\n2. К значениям\n3. Выполнить задачу\n4. Выйти\nВыберите [1-4]: "
 			);
 		}
 		switch (key) {
