@@ -130,18 +130,24 @@ void Lab6::t1()
 							// первая очередь
 							if (ask1or2("Что делаем?\n1. Добавить\n2. Удалить\nВыберите [1/2]: ") == 1) {
 								// добавить
+								size_t index = input<unsigned int>("Введите индекс: ");
+								int value = input<unsigned int>("Введите значение: ");
 							}
 							else {
 								// удалить
+								size_t index = input<unsigned int>("Введите индекс: ");
 							}
 						}
 						else {
 							// вторая очередь
 							if (ask1or2("Что делаем?\n1. Добавить\n2. Удалить\nВыберите [1/2]: ") == 1) {
 								// добавить
+								size_t index = input<unsigned int>("Введите индекс: ");
+								int value = input<unsigned int>("Введите значение: ");
 							}
 							else {
 								// удалить
+								size_t index = input<unsigned int>("Введите индекс: ");
 							}
 						}
 					}
@@ -149,9 +155,12 @@ void Lab6::t1()
 						// список
 						if (ask1or2("Что делаем?\n1. Добавить\n2. Удалить\nВыберите [1/2]: ") == 1) {
 							// добавить
+							size_t index = input<unsigned int>("Введите индекс: ");
+							int value = input<unsigned int>("Введите значение: ");
 						}
 						else {
 							// удалить
+							size_t index = input<unsigned int>("Введите индекс: ");
 						}
 					}
 					break;
