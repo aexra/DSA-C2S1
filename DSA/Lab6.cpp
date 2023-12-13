@@ -103,13 +103,10 @@ void Lab6::t1()
 		switch (key) {
 		case 1:
 			unsigned short key = ask1or2("Формат какого типа данных вы хотите изменить?\n1. Очередей\n2. Списков");
-			unsigned short type = ask1or2("Выберите тип\n1. Массив\n2. Связный");
-			if (key == 1) {
-				type1 = type;
-			}
-			else {
-				type2 = type;
-			}
+			unsigned short type = ask1or2("Выберите тип\n1. Массив\n2. Связная структура");
+			if (key == 1) type1 = type;
+			else type2 = type;
+			std::cout << "Формат " << (key == 1? "очередей" : "списков") << " изменен на " << (type == 1 ? "массив" : "связную структуру");
 			break;
 		case 2:
 
