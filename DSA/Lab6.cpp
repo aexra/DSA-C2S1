@@ -207,6 +207,10 @@ void Lab6::t1()
 						if (whatAction == 1) {
 							// добавить
 							size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
+							if (index > linkedlist.count()) {
+								std::cout << "Такого индекса нет! Пшел в начало!\n";
+								break;
+							}
 							int value = input<int>("Введите значение: ");
 							linkedlist.insert(index, value);
 							arraylist.insert(index, value);
@@ -214,6 +218,10 @@ void Lab6::t1()
 						else if (whatAction == 2) {
 							// удалить
 							size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
+							if (index >= linkedlist.count()) {
+								std::cout << "Такого индекса нет! Пшел в начало!\n";
+								break;
+							}
 							linkedlist.remove(index);
 							arraylist.remove(index);
 						}
