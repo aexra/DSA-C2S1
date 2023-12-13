@@ -8,6 +8,9 @@ private:
 public:
 	void add(T value);
 	T pop();
+
+	template<typename U>
+	friend Queue<U> operator + (Queue<U>& _Left, Queue<U>& _Right);
 };
 
 template<typename T>
@@ -43,8 +46,20 @@ inline T Queue<T>::pop()
 		this->length--;
 		return value;
 	}
-	catch () {
+	catch (std::exception ex) {
 		return nullptr;
 	}
 }
 
+template<typename U>
+inline Queue<U> operator+(Queue<U>& _Left, Queue<U>& _Right)
+{
+	Queue<U> q;
+	for (size_t i = 0; i < _Left.count(); i++) {
+		q.add(_Left[i]);
+	}
+	for (size_t i = 0; i < _Right.count(); i++) {
+		q.add(_Right[i]);
+	}
+	return q;
+}

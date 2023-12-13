@@ -19,7 +19,15 @@ List<T> Lab6::getRandFilledList(size_t count, T min, T max)
 
 void Lab6::t1()
 {
+	Queue<int> q1;
+	q1.add(3);
+	q1.add(5);
 
+	Queue<int> q2;
+	q2.add(1);
+	q2.add(-10);
+
+	(q1 + q2).cout();
 }
 
 void Lab6::t2()
