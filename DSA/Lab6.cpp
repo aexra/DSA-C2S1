@@ -1,4 +1,5 @@
-#include "Lab6.h"
+﻿#include "Lab6.h"
+using namespace SpecialFunctionsForLabs;
 
 template<typename T>
 List<T> Lab6::getRandFilledList(size_t count, T min, T max)
@@ -50,9 +51,26 @@ Queue<T> Lab6::getRandFilledQueue(size_t count, T min, T max)
 //	list.cout();
 //}
 
+unsigned short Lab6::ask1or2(std::string question, std::string error)
+{
+	unsigned short key = 0;
+	while (true) {
+		key = input<unsigned int>(question);
+		if (key == 1 || key == 2) break;
+		else std::cout << error << std::endl;
+	}
+	return key;
+}
+
 void Lab6::fake1()
 {
-	
+	size_t key = ask1or2("\nКакой тип данных использовать?\n1. ArrayQueue\n2. LinkedQueue\nЧё? [1/2]: ");
+	if (key == 1) {
+
+	}
+	else {
+
+	}
 }
 
 void Lab6::fake2()
@@ -63,7 +81,23 @@ void Lab6::fake2()
 // the InTeRfAcE
 void Lab6::t1()
 {
-	
+	std::cout << "Вас приветствует Мастер диалога шестой лабы." << std::endl;
+	while (true) {
+		char key = input<char>("Продолжить? [y/n]: ");
+		if (key == 'n' || key == 'N') {
+			break;
+		}
+		else {
+			size_t key = ask1or2("\nКакую задачу запустить? [1/2]: ", "Это не номер задачи! Давай заново.");
+			if (key == 1) {
+				fake1();
+			}
+			else {
+				fake2();
+			}
+		}
+	}
+	std::cout << "\nСпасибо что были с нами до самого конца. - Мастер диалога шестой лабы." << std::endl;
 }
 
 // will not be usable in this lab

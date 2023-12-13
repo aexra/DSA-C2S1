@@ -14,12 +14,14 @@
 #include "ArrayList.h"
 #include "Queue.h"
 #include "ArrayQueue.h"
+#include "UltraCoolNamespace.h"
 
 /*			LAB CLASS				*/
 class Lab6 : public Lab
 {
 #pragma region Private
 private:
+	unsigned short ask1or2(std::string question = "Чё? [1/2]: ", std::string error = "Лее по цифрам попадать научись...");
 	void fake1();
 	void fake2();
 
