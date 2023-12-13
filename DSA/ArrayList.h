@@ -38,8 +38,8 @@ inline T ArrayList<T>::remove(size_t i)
 	for (size_t j = 0; j < length; j++) {
 		if (j != i) {
 			newAry[tempk] = _Ary[j];
+			tempk++;
 		}
-		tempk++;
 	}
 	delete _Ary;
 	_Ary = newAry;

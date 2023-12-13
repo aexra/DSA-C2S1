@@ -40,6 +40,7 @@ void Lab6::t1()
 	ArrayList<int> lst;
 	lst.push(5);
 	lst.push(10);
+	lst.cout();
 	lst.remove(0);
 	lst.cout();
 
