@@ -20,6 +20,9 @@ class Lab6 : public Lab
 {
 #pragma region Private
 private:
+	void fake1();
+	void fake2();
+
 	template<typename T>
 	List<T> getRandFilledList(size_t count, T min = -10, T max = 10);
 	template<typename T>

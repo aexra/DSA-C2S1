@@ -35,17 +35,38 @@ Queue<T> Lab6::getRandFilledQueue(size_t count, T min, T max)
 	return q;
 }
 
-void Lab6::t1()
+//void Lab6::fake1()
+//{
+//	Queue<int> q1 = getRandFilledQueue<int>(5);
+//	Queue<int> q2 = getRandFilledQueue<int>(5);
+//	(q2 += q1).cout();
+//}
+//
+//void Lab6::fake2()
+//{
+//	List<int> list = getRandFilledList<int>(5, -100, 100);
+//	list.cout();
+//	list.swap(0, list.find(list.min()));
+//	list.cout();
+//}
+
+void Lab6::fake1()
 {
-	Queue<int> q1 = getRandFilledQueue<int>(5);
-	Queue<int> q2 = getRandFilledQueue<int>(5);
-	(q2 += q1).cout();
+	
 }
 
+void Lab6::fake2()
+{
+	
+}
+
+// the InTeRfAcE
+void Lab6::t1()
+{
+	
+}
+
+// will not be usable in this lab
 void Lab6::t2()
 {
-	List<int> list = getRandFilledList<int>(5, -100, 100);
-	list.cout();
-	list.swap(0, list.find(list.min()));
-	list.cout();
 }
