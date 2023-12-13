@@ -23,6 +23,8 @@ class Lab6 : public Lab
 private:
 	template<typename T>
 	List<T> getRandFilledList(size_t count, T min = -10, T max = 10);
+	template<typename T>
+	Queue<T> getRandFilledQueue(size_t count, T min = -10, T max = 10);
 #pragma endregion
 #pragma region Public
 public:

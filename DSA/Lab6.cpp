@@ -17,16 +17,28 @@ List<T> Lab6::getRandFilledList(size_t count, T min, T max)
 	return list;
 }
 
+template<typename T>
+Queue<T> Lab6::getRandFilledQueue(size_t count, T min, T max)
+{
+	Queue<T> q;
+	HRND rnd = Random::GetInstance();
+	if (is_same<T, int>::value) {
+		for (size_t i = 0; i < count; i++) {
+			q.add(rnd->randi(min, max));
+		}
+	}
+	else if (is_same<T, float>::value || is_same<T, double>::value) {
+		for (size_t i = 0; i < count; i++) {
+			q.add(rnd->randf(min, max));
+		}
+	}
+	return q;
+}
+
 void Lab6::t1()
 {
-	Queue<int> q1;
-	q1.add(3);
-	q1.add(5);
-
-	Queue<int> q2;
-	q2.add(1);
-	q2.add(-10);
-
+	Queue<int> q1 = getRandFilledQueue<int>(5);
+	Queue<int> q2 = getRandFilledQueue<int>(5);
 	(q1 + q2).cout();
 }
 
