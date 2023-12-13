@@ -171,6 +171,7 @@ void Lab6::t1()
 						else {
 							// удалить
 							size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
+							linkedlist.remove(index);
 						}
 					}
 					break;
