@@ -20,9 +20,17 @@ namespace SpecialFunctionsForLabs {
 		getline(cin, input);
 
 		if (is_same<T, unsigned int>::value) {
-			while (!(is_int(input) && stoi(input) > 0)) {
-				cout << _DefaultErrorMessage;
-				getline(cin, input);
+			if (!_FlagArg) {
+				while (!(is_int(input) && stoi(input) > 0)) {
+					cout << _DefaultErrorMessage;
+					getline(cin, input);
+				}
+			}
+			else {
+				while (!(is_int(input) && stoi(input) >= 0)) {
+					cout << _DefaultErrorMessage;
+					getline(cin, input);
+				}
 			}
 			return stoi(input);
 		}

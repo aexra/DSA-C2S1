@@ -115,7 +115,7 @@ void Lab6::t1()
 			bool toExit = false;
 			while (!toExit) {
 				unsigned short akey = 0;
-				while (!(1 <= key && key <= 3)) {
+				while (!(1 <= akey && akey <= 3)) {
 					akey = input<unsigned int>(
 						"1. Просмотреть значения\n2. Изменить значения\n3. Назад\nВыберите [1-3]: "
 					);
@@ -136,25 +136,24 @@ void Lab6::t1()
 							// первая очередь
 							if (ask1or2("Что делаем?\n1. Добавить\n2. Удалить\nВыберите [1/2]: ") == 1) {
 								// добавить
-								size_t index = input<unsigned int>("Введите индекс: ");
+								size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
 								int value = input<unsigned int>("Введите значение: ");
 							}
 							else {
 								// удалить
-								size_t index = input<unsigned int>("Введите индекс: ");
+								size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
 							}
 						}
 						else {
 							// вторая очередь
 							if (ask1or2("Что делаем?\n1. Добавить\n2. Удалить\nВыберите [1/2]: ") == 1) {
 								// добавить
-								size_t index = input<unsigned int>("Введите индекс: ");
+								size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
 								int value = input<unsigned int>("Введите значение: ");
-								linkedlist.insert(index, value);
 							}
 							else {
 								// удалить
-								size_t index = input<unsigned int>("Введите индекс: ");
+								size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
 							}
 						}
 					}
@@ -162,12 +161,13 @@ void Lab6::t1()
 						// список
 						if (ask1or2("Что делаем?\n1. Добавить\n2. Удалить\nВыберите [1/2]: ") == 1) {
 							// добавить
-							size_t index = input<unsigned int>("Введите индекс: ");
+							size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
 							int value = input<unsigned int>("Введите значение: ");
+							linkedlist.insert(index, value);
 						}
 						else {
 							// удалить
-							size_t index = input<unsigned int>("Введите индекс: ");
+							size_t index = input<unsigned int>("Введите индекс: ", "Такого индекса нет, давай по новой: ", 1);
 						}
 					}
 					break;
