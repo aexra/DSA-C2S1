@@ -116,7 +116,7 @@ void Lab6::t1()
 		arraylist.push(linkedlist[i]);
 	}
 	for (size_t i = 0; i < linkedqueue1.count(); i++) {
-		arrayqueue1.add(linkedqueue2[i]);
+		arrayqueue1.add(linkedqueue1[i]);
 	}
 	for (size_t i = 0; i < linkedqueue2.count(); i++) {
 		arrayqueue2.add(linkedqueue2[i]);
